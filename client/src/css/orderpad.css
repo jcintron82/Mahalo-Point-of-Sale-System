@@ -1,0 +1,7 @@
+.orderpadwrap{
+    border: solid black 2px;
+    width: 90%;
+    min-height: 70vh;
+    max-width: 25rem;
+    margin: .3rem;
+}
