@@ -12,7 +12,7 @@ export function HomeScreenBody() {
   };
 
   return (
-  <div class='body'>
+  <div className='body'>
     <div className="mainwrap">
       <OrderPad />
       <div className="categorybtnswrap">

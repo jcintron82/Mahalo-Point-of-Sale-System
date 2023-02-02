@@ -1,13 +1,23 @@
+import { useNavigate } from 'react-router-dom'
+
 import { OrderPad } from '../orderpad.js'
 import { UtilityBar } from '../utilitybar'
 import "../../css/mainscreen/homescreen-styles.css";
 
+
 export function BreakfastMain() {
+  const navigate = useNavigate();
+
+  const onClick = (section) => {
+    let formattedArg = "/" + section;
+      navigate(formattedArg);
+  };
+
   return (
-    <div class='body'>
+    <div className='body'>
     <div className="mainwrap">
       <OrderPad />
-      <div className="categorybtnswrap">
+      <div onClick={(e) => onClick('waffles')} className="categorybtnswrap">
             <button className="categorybtns">Waffles
             </button>
             <button className="categorybtns">Egg Breakfasts
