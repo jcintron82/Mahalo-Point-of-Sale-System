@@ -1,5 +1,17 @@
+const mongoose = require('mongoose');
+const items = require("../DBschemas/items");
+
+const arr = [];
 module.exports = {
+  
   getIndex: (req, res) => {
-    res.json({message:'Hello from server this works'})
+    const dbQuery = items.find({}, (err, cursor) => {
+      cursor.forEach((dataset) => {
+        arr.push(dataset)
+      });
+      console.log(arr)
+    })
+
+    // res.json({message:dbQuery})
   }
 };
