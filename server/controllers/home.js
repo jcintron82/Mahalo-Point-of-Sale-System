@@ -2,17 +2,26 @@ const mongoose = require('mongoose');
 const items = require("../DBschemas/items");
 
 const arr = [];
-const x = arr.toString();
+
+const addTotals = (arr) => {
+  arr.forEach((item) => {
+    console.log(item.Item)
+  })
+
+}
 
 module.exports = {
   getIndex: (req, res) => {
     const dbQuery = items.find({}, (err, cursor) => {
       cursor.forEach((dataset) => {
         arr.push(dataset);
+        // arr.splice(0)
+        // console.log(dataset.Item)
       });
-      console.log(arr);
+      addTotals(arr)
+      
     })
 
-    res.send({message:arr})
+    res.json({message:arr})
   }
 };

@@ -8,15 +8,18 @@ export const WafflesScreen = () => {
     const [message, setMessage] = useState("");
 
 
-     
-      
-
 const addToOrderClick = async () => {
-    const call = await fetch("http://localhost:8000")
-    const data = await call.json()
-    console.log(data.message)
-        // setMessage('Hi');
+    try {
+    const call = await fetch("http://localhost:8000");
+    const data = await call.json();
+    
+        setMessage(data);
     }
+    catch(err){
+        console.log(err)
+    }
+    console.log(message)
+}
 
   return (
     <div className='body'>
