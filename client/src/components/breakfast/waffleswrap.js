@@ -11,11 +11,10 @@ export const WafflesScreen = () => {
      
       
 
-const addToOrderClick = () => {
-    fetch("http://localhost:8000")
-    .then((res) => res.json())
-    .then((data) => setMessage(data.message));
-    console.log(message)
+const addToOrderClick = async () => {
+    const call = await fetch("http://localhost:8000")
+    const data = await call.json()
+    console.log(data.message)
         // setMessage('Hi');
     }
 
@@ -24,7 +23,7 @@ const addToOrderClick = () => {
     <div className="mainwrap">
       <OrderPad />
       <div className="categorybtnswrap">
-            <button onClick={(e) => {addToOrderClick()}} className="categorybtns">Plain {message}
+            <button onClick={(e) => {addToOrderClick()}} className="categorybtns">Plain
             </button>
             <button className="categorybtns">Blueberry
             </button>
