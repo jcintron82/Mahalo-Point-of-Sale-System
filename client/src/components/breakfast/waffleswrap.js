@@ -13,7 +13,7 @@ export const WafflesScreen = () => {
       const pull = await fetch("http://localhost:8000", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(arr),
+        body: JSON.stringify(queryArr),
       });
       queryArr.splice(0);
       addToOrderClick();
