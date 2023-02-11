@@ -1,4 +1,4 @@
-import { OrderPad } from "../orderpad.js";
+import { OrderPad, orderPadArr, orderFunc } from "../orderpad.js";
 import { UtilityBar } from "../utilitybar";
 import "../../css/mainscreen/homescreen-styles.css";
 
@@ -26,7 +26,8 @@ export const WafflesScreen = () => {
     try {
       const call = await fetch("http://localhost:8000");
       const data = await call.json();
-      console.log(data);
+      orderPadArr.push(data);
+      orderFunc.newOrder();
     } catch (err) {
       console.log(err);
     }

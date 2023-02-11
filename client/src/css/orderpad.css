@@ -6,3 +6,17 @@
     margin: .3rem;
     background-color: lightgray;
 }
+.orderpad-items-wrap{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+.orderpad-ols-wrap{
+    display: flex;
+}
+ol{
+    width: 1rem;
+}
+.priceli::marker{
+    color: transparent;
+}
