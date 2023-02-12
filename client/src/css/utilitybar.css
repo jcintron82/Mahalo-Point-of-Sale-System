@@ -1,14 +1,17 @@
 .utilitywrap{
-    border: solid blue 3px;;
     display: flex;
     justify-content: flex-end;
-    position: relative;
-   bottom: 0;
+   padding: .25rem .5rem;
+   height: 10vh;
+   background-color: #E9EDEB;
   
 }
 .utilitybtns{
     width: 30vw;
     max-width: 10rem;
-    height: 4rem;
     margin: 0 0.5rem;
+    background-color: #0B3954;
+    color: white;
+    font-size: 100%;
+    border-radius: .2em;
 }

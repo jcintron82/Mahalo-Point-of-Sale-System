@@ -13,7 +13,16 @@ function OrderPad() {
   const [order, setArr] = useState();
   const [price1, setPrice] = useState();
   const [qty, setQty] = useState();
+  const [finalSum, setFinalSum] = useState(0.00);
 
+  const totalFinalSum = () => {
+    let sum = 0;
+    priceArr.filter((price) => {
+      const parsedPrice = parseInt(price)
+      sum = (sum + parsedPrice)
+    });
+    setFinalSum(sum.toFixed(2));
+  }
   orderFunc.newOrder = () => {
     orderPadArr.forEach((item, index) => {
       //Parsing the decimal value to be displayed
@@ -36,12 +45,13 @@ function OrderPad() {
       if (finalOrderArr.includes(productItem)) {
         let index = finalOrderArr.indexOf(productItem);
         const parsed = parseInt(priceArr[index]);
-        priceArr[index] = parsed + priceString;
+        const newPrice = parsed + priceString;
+        priceArr[index] = newPrice.toFixed(2);
         setPrice(priceArr[index]);
         qtyArr[index] = (qtyArr[index] + 1)
       } else {
         finalOrderArr.push(productItem);
-        priceArr.push(priceString);
+        priceArr.push(priceString.toFixed(2));
         qtyArr.push(formattedQty)
         setArr(formattedItemlist);
         setPrice(priceString);
@@ -50,6 +60,7 @@ function OrderPad() {
       }
       orderPadArr.splice(0);
     });
+    totalFinalSum();
   };
 
   return (
@@ -71,11 +82,11 @@ function OrderPad() {
         </ol>
         <ol>
           {priceArr.map((price, index) => (
-            <li className="priceli" key={index}>Total: {price}</li>
+            <li className="priceli" key={index}>Total: ${price}</li>
           ))}
         </ol>
-        
       </div>
+      <h5 className="subtotalWrap">Order Subtotal: ${finalSum}</h5>
     </div>
   );
 }

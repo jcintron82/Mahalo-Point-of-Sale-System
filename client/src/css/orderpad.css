@@ -1,10 +1,14 @@
 .orderpadwrap{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
     border: solid black 2px;
     width: 90%;
     min-height: 70vh;
     max-width: 25rem;
     margin: .3rem;
     background-color: lightgray;
+    
 }
 .orderpad-items-wrap{
     display: flex;
@@ -27,4 +31,12 @@ ol{
 }
 .priceli::marker{
     color: transparent;
+}
+.subtotalWrap{
+    display: flex;
+    align-self: flex-end;
+    padding-right: 10%;
+}
+h5{
+    display: flex;
 }
