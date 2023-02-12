@@ -1,5 +1,5 @@
 // import { OrderPadElements } from
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "../css/orderpad.css";
 export { OrderPad, orderPadArr, orderFunc };
 
@@ -10,7 +10,7 @@ const priceArr = [];
 const qtyArr = [];
 
 function OrderPad() {
-  const [order, setArr] = useState("hi");
+  const [order, setArr] = useState();
   const [price1, setPrice] = useState();
   const [qty, setQty] = useState();
 
@@ -32,7 +32,7 @@ function OrderPad() {
         .replaceAll(/\\/g, "");
 
       const formattedQty = parseInt(item.message[0].qty);
-      
+
       if (finalOrderArr.includes(productItem)) {
         let index = finalOrderArr.indexOf(productItem);
         const parsed = parseInt(priceArr[index]);
@@ -54,22 +54,24 @@ function OrderPad() {
 
   return (
     <div className="orderpadwrap">
-      <h1>Current Order</h1>
+      {/* <h1>Current Order</h1> */}
       <div className="orderpad-ols-wrap">
         <ol className="orderpad-items-wrap">
           {/* <li>{order}</li> */}
           {finalOrderArr.map((item, index) => (
-            <li key={index}>{item}</li>
-          ))}
-        </ol>
-        <ol>
-          {priceArr.map((price, index) => (
-            <li className="priceli" key={index}>{price}</li>
+            <li key={index}>{item}
+   
+            </li>
           ))}
         </ol>
         <ol>
           {qtyArr.map((qty, index) => (
-            <li className="priceli" key={index}>{qty}</li>
+            <li className="priceli" key={index}>Qty: {qty}</li>
+          ))}
+        </ol>
+        <ol>
+          {priceArr.map((price, index) => (
+            <li className="priceli" key={index}>Total: {price}</li>
           ))}
         </ol>
         

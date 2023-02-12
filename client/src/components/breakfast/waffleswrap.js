@@ -45,7 +45,7 @@ export const WafflesScreen = () => {
             }}
             className="categorybtns"
           >
-            Plain
+            Plain Waffle
           </button>
           <button
             type="submit"
@@ -54,7 +54,16 @@ export const WafflesScreen = () => {
             }}
             className="categorybtns"
           >
-            Blueberry
+            Blueberry Waffle
+          </button>
+          <button
+            type="submit"
+            onClick={(e) => {
+              queryProduct("Chocolate Chip Waffle");
+            }}
+            className="categorybtns"
+          >
+            Chocolate Chip Waffle
           </button>
         </div>
       </div>

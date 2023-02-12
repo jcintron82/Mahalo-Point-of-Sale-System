@@ -9,10 +9,18 @@
 .orderpad-items-wrap{
     display: flex;
     flex-direction: column;
-    width: 50%;
+    justify-content:space-evenly;
+    width: 30%;
+}
+ol{
+    width: 30%;
+}
+li{
+    margin: 1rem 0;
 }
 .orderpad-ols-wrap{
     display: flex;
+ 
 }
 ol{
     width: 1rem;
