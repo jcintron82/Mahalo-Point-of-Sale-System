@@ -7,10 +7,12 @@ const orderPadArr = [];
 const orderFunc = {};
 const finalOrderArr = [];
 const priceArr = [];
+const qtyArr = [];
 
 function OrderPad() {
   const [order, setArr] = useState("hi");
   const [price1, setPrice] = useState();
+  const [qty, setQty] = useState();
 
   orderFunc.newOrder = () => {
     orderPadArr.forEach((item, index) => {
@@ -21,24 +23,30 @@ function OrderPad() {
       let priceString = parseInt(numberDecimal);
 
       let productItem = JSON.stringify(item.message[0].Item).replaceAll('"','');
-
-      
+      //Do not take out and try to do setArr() on line45  with something else, 
+      //unexpected bug where first entry is skipped will arise
       const formattedItemlist = JSON.stringify(finalOrderArr)
         .replaceAll('"', "")
         .replaceAll("[", "")
         .replaceAll("]", "")
         .replaceAll(/\\/g, "");
 
+      const formattedQty = parseInt(item.message[0].qty);
+      
       if (finalOrderArr.includes(productItem)) {
         let index = finalOrderArr.indexOf(productItem);
         const parsed = parseInt(priceArr[index]);
         priceArr[index] = parsed + priceString;
         setPrice(priceArr[index]);
+        qtyArr[index] = (qtyArr[index] + 1)
       } else {
         finalOrderArr.push(productItem);
         priceArr.push(priceString);
+        qtyArr.push(formattedQty)
         setArr(formattedItemlist);
         setPrice(priceString);
+        console.log(finalOrderArr);
+
       }
       orderPadArr.splice(0);
     });
@@ -59,6 +67,12 @@ function OrderPad() {
             <li className="priceli" key={index}>{price}</li>
           ))}
         </ol>
+        <ol>
+          {qtyArr.map((qty, index) => (
+            <li className="priceli" key={index}>{qty}</li>
+          ))}
+        </ol>
+        
       </div>
     </div>
   );
