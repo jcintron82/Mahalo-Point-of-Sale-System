@@ -3,7 +3,7 @@
     flex-flow: column nowrap;
     justify-content: space-between;
     border: solid black 2px;
-    width: 90%;
+    width: 95%;
     min-height: 70vh;
     max-width: 25rem;
     margin: .3rem;
@@ -15,6 +15,7 @@
     flex-direction: column;
     justify-content:space-evenly;
     width: 30%;
+    padding-left: 0;
 }
 ol{
     width: 30%;
@@ -22,16 +23,35 @@ ol{
 li{
     margin: 1rem 0;
 }
+li:focus{
+    background-color: red;
+}
 .orderpad-ols-wrap{
     display: flex;
- 
+    padding-left: 0;
+    width: 100%;
+    justify-content: space-around;
+
 }
 ol{
     width: 1rem;
 }
+.priceli{
+    display: flex;
+    background-color: aquamarine;
+    flex-wrap: nowrap;
+    justify-content: center;
+    height: 5vh;
+}
 .priceli::marker{
     color: transparent;
 }
+.qtyinput{
+    width: 60%;
+    max-width: 3rem;
+    text-align: center;
+}
+
 .subtotalWrap{
     display: flex;
     align-self: flex-end;
@@ -39,4 +59,7 @@ ol{
 }
 h5{
     display: flex;
+}
+.highlight{
+    background-color: red;
 }

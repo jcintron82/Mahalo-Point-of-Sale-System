@@ -14,7 +14,26 @@ function OrderPad() {
   const [price1, setPrice] = useState();
   const [qty, setQty] = useState();
   const [finalSum, setFinalSum] = useState(0.00);
+  const [deleteIndex, setIndex] = useState();
 
+  const setDeleteIndex =  (index) => {
+    const x =  index
+      setIndex(x)
+      console.log(x);
+      console.log(deleteIndex)
+  }
+
+
+  const deleteItem = () => {
+    console.log(deleteIndex)
+    priceArr.splice(deleteIndex, 1);
+    finalOrderArr.splice(deleteIndex, 1);
+    qtyArr.splice(deleteIndex, 1)
+    setPrice(priceArr);
+    setArr(finalOrderArr)
+    setQty(qtyArr);
+    setIndex(null);
+  }
   const totalFinalSum = () => {
     let sum = 0;
     priceArr.filter((price) => {
@@ -25,6 +44,7 @@ function OrderPad() {
   }
   orderFunc.newOrder = () => {
     orderPadArr.forEach((item, index) => {
+      console.log(item)
       //Parsing the decimal value to be displayed
       const productPrice = JSON.stringify(item.message[0].Price);
       const parsedPrice = JSON.parse(productPrice);
@@ -66,27 +86,42 @@ function OrderPad() {
   return (
     <div className="orderpadwrap">
       {/* <h1>Current Order</h1> */}
-      <div className="orderpad-ols-wrap">
+      <ol className="orderpad-ols-wrap">
         <ol className="orderpad-items-wrap">
           {/* <li>{order}</li> */}
           {finalOrderArr.map((item, index) => (
-            <li key={index}>{item}
+            <li onClick={(e) => {
+              setDeleteIndex(index);
+            }} className="priceli" key={index}>{item}
    
             </li>
           ))}
         </ol>
-        <ol>
+        <ol className="orderpad-items-wrap">
           {qtyArr.map((qty, index) => (
-            <li className="priceli" key={index}>Qty: {qty}</li>
+            <li onClick={(e) => {
+              setDeleteIndex(index);
+            }} className="priceli" key={index}><select className="qtyinput" placeholder={qty}>
+              <option value='1'>{qty}</option>
+              <option value='1'>1</option>
+              <option value='2'>2</option>
+              <option value='3'>3</option>
+              <option value='4'>4</option>
+              <option value='5'>5</option>
+
+              </select></li>
           ))}
         </ol>
-        <ol>
+        <ol className="orderpad-items-wrap">
           {priceArr.map((price, index) => (
-            <li className="priceli" key={index}>Total: ${price}</li>
-          ))}
+            <li onClick={(e) => {
+              setDeleteIndex(index);
+            }} className="priceli" key={index}>Total: ${price}</li> 
+          ))};
         </ol>
-      </div>
-      <h5 className="subtotalWrap">Order Subtotal: ${finalSum}</h5>
+      </ol>
+      <button onClick={(e) => deleteItem({deleteIndex})}>X</button>
+      <h5 className="subtotalWrap">Order Subtotal: ${finalSum}</h5> 
     </div>
   );
 }
