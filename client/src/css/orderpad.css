@@ -51,7 +51,9 @@ ol{
     max-width: 3rem;
     text-align: center;
 }
-
+.hide{
+    border: solid black 2px;
+}
 .subtotalWrap{
     display: flex;
     align-self: flex-end;
