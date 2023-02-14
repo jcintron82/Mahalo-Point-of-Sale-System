@@ -14,25 +14,29 @@ function OrderPad() {
   const [price1, setPrice] = useState();
   const [qty, setQty] = useState();
   const [finalSum, setFinalSum] = useState(0.00);
-  const [deleteIndex, setIndex] = useState();
+  const [deleteIndex, setIndex] = useState(-1);
+  const [clickedColor, setColor] = useState(false);
 
   const setDeleteIndex =  (index) => {
-    const x =  index
-      setIndex(x)
-      console.log(x);
-      console.log(deleteIndex)
+      setIndex(index)
+      console.log(index);
+      console.log(deleteIndex);
+    setColor(!clickedColor);
+    console.log( 'after click' + deleteIndex);
+
   }
 
 
   const deleteItem = () => {
-    console.log(deleteIndex)
+    // console.log(deleteIndex)
     priceArr.splice(deleteIndex, 1);
     finalOrderArr.splice(deleteIndex, 1);
     qtyArr.splice(deleteIndex, 1)
     setPrice(priceArr);
     setArr(finalOrderArr)
     setQty(qtyArr);
-    setIndex(null);
+    setIndex(1);
+    totalFinalSum();
   }
   const totalFinalSum = () => {
     let sum = 0;
@@ -44,7 +48,7 @@ function OrderPad() {
   }
   orderFunc.newOrder = () => {
     orderPadArr.forEach((item, index) => {
-      console.log(item)
+      // console.log(item)
       //Parsing the decimal value to be displayed
       const productPrice = JSON.stringify(item.message[0].Price);
       const parsedPrice = JSON.parse(productPrice);
@@ -75,7 +79,7 @@ function OrderPad() {
         qtyArr.push(formattedQty)
         setArr(formattedItemlist);
         setPrice(priceString);
-        console.log(finalOrderArr);
+        // console.log(finalOrderArr);
 
       }
       orderPadArr.splice(0);
@@ -92,7 +96,7 @@ function OrderPad() {
           {finalOrderArr.map((item, index) => (
             <li onClick={(e) => {
               setDeleteIndex(index);
-            }} className="priceli" key={index}>{item}
+            }} className={clickedColor ? "hide" : "priceli"} key={index}>{item}
    
             </li>
           ))}
@@ -101,7 +105,7 @@ function OrderPad() {
           {qtyArr.map((qty, index) => (
             <li onClick={(e) => {
               setDeleteIndex(index);
-            }} className="priceli" key={index}><select className="qtyinput" placeholder={qty}>
+            }} className={clickedColor ? "hide" : "priceli"} key={index}><select className="qtyinput" placeholder={qty}>
               <option value='1'>{qty}</option>
               <option value='1'>1</option>
               <option value='2'>2</option>
@@ -116,7 +120,9 @@ function OrderPad() {
           {priceArr.map((price, index) => (
             <li onClick={(e) => {
               setDeleteIndex(index);
-            }} className="priceli" key={index}>Total: ${price}</li> 
+              console.log(e)
+              //Working with this and trying to get it to only change the class for the selected element 
+            }} className={clickedColor ? "hide" : "priceli"} key={index} id={index}>Total: ${price}</li> 
           ))};
         </ol>
       </ol>
