@@ -10,7 +10,7 @@ export const WafflesScreen = () => {
     queryArr.push(input);
     try {
       // Send data to the backend via POST
-      const pull = await fetch("http://localhost:8000", {
+      const pull = await fetch("http://localhost:8000/waffles", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(queryArr),
@@ -24,7 +24,7 @@ export const WafflesScreen = () => {
 
   const addToOrderClick = async () => {
     try {
-      const call = await fetch("http://localhost:8000");
+      const call = await fetch("http://localhost:8000/waffles");
       const data = await call.json();
       orderPadArr.push(data);
       orderFunc.newOrder();
