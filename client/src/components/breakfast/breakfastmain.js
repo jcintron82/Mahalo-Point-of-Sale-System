@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 
-import { OrderPad } from '../orderpad.js'
-import { UtilityBar } from '../utilitybar'
+import { OrderPad } from '../utility/orderpad.js'
+import { UtilityBar } from '../utility/utilitybar'
 import "../../css/mainscreen/homescreen-styles.css";
 
 

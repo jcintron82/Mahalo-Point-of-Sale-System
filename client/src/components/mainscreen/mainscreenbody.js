@@ -1,6 +1,6 @@
-import { OrderPad } from '../orderpad.js'
+import { OrderPad } from '../utility/orderpad.js'
 import { useEffect, useState } from 'react';
-import { UtilityBar } from '../utilitybar'
+import { UtilityBar } from '../utility/utilitybar'
 import { useNavigate } from "react-router-dom";
 import "../../css/mainscreen/homescreen-styles.css";
 import { employeeMetrics } from './mainloginscreen.js';

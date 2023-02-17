@@ -33,6 +33,14 @@ const incorrectPassword = (name, sales) => {
         employeeMetrics.name = data.employeeName
         employeeMetrics.lifetimeSales = data.lifetimeSales;
         localStorage.setItem("name", data.employeeName);
+        //Parses and formats lifetime sales number
+        const parsedPrice = JSON.stringify(data.lifetimeSales);
+        const productPrice = JSON.parse(parsedPrice);
+        let numberDecimal = productPrice["$numberDecimal"];
+        const finalFormattedNum = parseInt(numberDecimal)
+
+        localStorage.setItem("lifetimeSales", finalFormattedNum.toFixed(2));
+        localStorage.setItem("dailySales", 0.00);
         navigate(data.code);
         }
 }

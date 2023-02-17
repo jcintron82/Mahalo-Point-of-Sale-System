@@ -1,5 +1,5 @@
-import { OrderPad, orderPadArr, orderFunc } from "../orderpad.js";
-import { UtilityBar } from "../utilitybar";
+import { OrderPad, orderPadArr, orderFunc } from "../utility/orderpad.js";
+import { UtilityBar } from "../utility/utilitybar";
 import "../../css/mainscreen/homescreen-styles.css";
 
 // const mongoose = require("mongoose");
