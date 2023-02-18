@@ -1,12 +1,16 @@
-import { useNavigate } from 'react-router-dom'
-
-import { OrderPad, orderPadArr, orderFunc } from '../utility/orderpad.js'
-import { UtilityBar } from '../utility/utilitybar'
+import { useNavigate } from 'react-router-dom';
+import { editItems } from '../utility/orderpad.js';
+import { OrderPad, orderPadArr, orderFunc } from '../utility/orderpad.js';
+import { UtilityBar } from '../utility/utilitybar';
 import "../../css/mainscreen/homescreen-styles.css";
+export { customizationOptions, EggBreakfasts };
 
-
-export function EggBreakfasts() {
+const customizationOptions = {
+    edit: false,
+}
+function EggBreakfasts() {
     const queryArr = [];
+    
   const navigate = useNavigate();
 
   const queryProduct = async (input) => {
@@ -18,7 +22,7 @@ export function EggBreakfasts() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(queryArr),
       });
-      const data = await pull.json()
+    //   const data = await pull.json()
       orderFetch();
     queryArr.splice(0)
     } catch (err) {
@@ -29,10 +33,11 @@ export function EggBreakfasts() {
     try {
       const call = await fetch("http://localhost:8000/customizedplates");
       const data = await call.json();
-      console.log(data)
       orderPadArr.push(data);
       orderFunc.newOrder();
-      localStorage.setItem('currentorder', JSON.stringify(data))
+      customizationOptions.menuSelection = data;
+    //   console.log(customizationOptions.menuSelection)
+    //   customizationOptions.menuSelection.message[0].Eggs = 'Over Easy'
     } catch (err) {
       console.log(err);
     }
