@@ -17,10 +17,10 @@ export function BreakfastMain() {
     <div className='body'>
     <div className="mainwrap">
       <OrderPad />
-      <div onClick={(e) => onClick('waffles')} className="categorybtnswrap">
-            <button className="categorybtns">Waffles
+      <div className="categorybtnswrap">
+            <button onClick={(e) => onClick('waffles')} className="categorybtns">Waffles
             </button>
-            <button className="categorybtns">Egg Breakfasts
+            <button onClick={(e) => onClick('eggbreakfasts')} className="categorybtns">Egg Breakfasts
             </button>
             </div>
     </div>

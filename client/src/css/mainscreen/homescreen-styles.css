@@ -22,9 +22,8 @@
 }
 
 .categorybtns{
-    width: 15rem;
-    height: 20vh;
-    max-width: 15rem;
+    height: 5rem;
+    width: 5rem;
     font-size: 1em;
     margin: 2rem 0;
     max-height: 10rem;
