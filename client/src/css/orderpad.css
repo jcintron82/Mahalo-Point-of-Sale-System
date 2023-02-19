@@ -42,13 +42,30 @@ ol{
     background-color: aquamarine;
     flex-wrap: nowrap;
     justify-content: center;
-    height: 5vh;
 }
-.priceli::marker{
+.itemnamewrap{
+    display: flex;
+    margin: 0;
+    font-size: 1.25em
+}
+li::marker{
     color: transparent;
+}
+li{
+    width: 100%;
+    text-align: center;
+    margin: .25rem;
+}
+.customizationslist{
+    display: flex;
+    font-size: .8em;
+    padding-left: 0;
+    /* width: 10%; */
 }
 .itemwrap{
     width: 100%;
+    display: flex;
+    justify-content: space-between;
 }
 .qtyinput{
     width: 60%;

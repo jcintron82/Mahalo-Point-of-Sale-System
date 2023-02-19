@@ -33,20 +33,20 @@ export function CustomizationPanel() {
       <OrderPad />
       <div className="categorybtnswrap">
         <ul>Protein Type
-            <li><button className="categorybtns">Bacon</button></li>
-            <li><button className="categorybtns">Sausage</button></li>
+            <li><button onClick={(e) => addSelectedCustomization('Protein', 'Bacon')} className="categorybtns">Bacon</button></li>
+            <li><button onClick={(e) => addSelectedCustomization('Protein', 'Sausage')} className="categorybtns">Sausage</button></li>
             <li><button className="categorybtns">Chicken</button></li>
             <li><button className="categorybtns">Ham</button></li>
         </ul>
         <ul>Egg Style
-            <li><button onClick={(e) => addSelectedCustomization('Eggs', 'Over Easy')} className="categorybtns">Over-Easy</button></li>
-            <li><button onClick={(e) => addSelectedCustomization('Eggs', 'Medium')} className="categorybtns">Medium</button></li>
+            <li><button onClick={(e) => addSelectedCustomization('Eggs', 'Egg Style: Over Easy')} className="categorybtns">Over-Easy</button></li>
+            <li><button onClick={(e) => addSelectedCustomization('Eggs', 'Egg Style: Medium')} className="categorybtns">Medium</button></li>
             <li><button className="categorybtns">Well Done</button></li>
             <li><button className="categorybtns">Boiled</button></li>
         </ul>
         <ul>Toast Type
             <li><button className="categorybtns">White</button></li>
-            <li><button className="categorybtns">Wheat</button></li>
+            <li><button onClick={(e) => addSelectedCustomization('Toast', 'Wheat')} className="categorybtns">Wheat</button></li>
             <li><button className="categorybtns">Raisin</button></li>
         </ul>
         
