@@ -1,22 +1,33 @@
 .utilitywrap{
     display: flex;
-    flex-direction:  row-reverse;
-    justify-content: space-around;
-   padding: .25rem .5rem;
-   height: 10vh;
-   background-color: #E9EDEB;
-  
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    padding: 0.25rem 0.5rem;
+    height: 10vh;
+    background-color: #E9EDEB;
+    position: relative;
+    bottom: 0;
+    margin-top: 1vh;
+    width: 100%;
 }
 .utilitybtns{
-    width: 30vw;
+    width: 25%;
     max-width: 10rem;
-    margin: 0 0.5rem;
     background-color: #0B3954;
     color: white;
-    font-size: 100%;
-    border-radius: .2em;
+    font-size: .8em;
+    border-radius: 0.2em;
+    margin: 0 0.25rem;
 }
 .backarrowsvg{
     display: inline;
     width: 3rem;
+    fill: white;
+}
+@media(min-width:768px){
+    .utilitybtns:hover{
+        background-color: #136290;
+        cursor: pointer;
+        opacity: .9;
+    }
 }

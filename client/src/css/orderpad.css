@@ -2,6 +2,7 @@
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-between;
+    align-items: flex-start;
     border: solid black 2px;
     width: 95%;
     min-height: 70vh;
@@ -14,14 +15,12 @@
     display: flex;
     flex-direction: column;
     justify-content:space-evenly;
-    width: 90%;
+    width: 99%;
     padding-left: 0;
+
 }
 ol{
     width: 30%;
-}
-li{
-    margin: 1rem 0;
 }
 li:focus{
     background-color: red;
@@ -39,41 +38,57 @@ ol{
 
 .priceli{
     display: flex;
-    background-color: aquamarine;
+    border-bottom: solid 1px;
     flex-wrap: nowrap;
     justify-content: center;
+    align-self: flex-start;
+    align-items: center;
+    width: 99%;
+    height: 7vh;
+    margin: 0.5rem 0;
+    padding: 1rem 0;
 }
 .itemnamewrap{
     display: flex;
     margin: 0;
-    font-size: 1.25em
+    font-size: 1.25em;
+    text-align: left;
+    padding-right: 1vw;
 }
 li::marker{
     color: transparent;
 }
 li{
-    width: 100%;
-    text-align: center;
-    margin: .25rem;
+    display: flex;
+    margin: 0.25rem;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
 }
 .customizationslist{
     display: flex;
     font-size: .8em;
     padding-left: 0;
-    /* width: 10%; */
+    flex-wrap: wrap;
 }
 .itemwrap{
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
+
 }
 .qtyinput{
     width: 60%;
     max-width: 3rem;
     text-align: center;
 }
-.hide{
-    border: solid black 2px;
+.highlightselectedproduct{
+    border: dotted red 4px;
+    align-self: flex-start;
+    width: 99%;
+    background: lightcyan;
+    padding: 0.5rem 0;
+    margin: 0;
 }
 .subtotalWrap{
     display: flex;
@@ -83,6 +98,35 @@ li{
 h5{
     display: flex;
 }
-.highlight{
-    background-color: red;
+.btnswrap{
+    display: flex;
+    width: 90%;
+    justify-content: space-around;
+    align-self: center;
+    height: 10vh;
+    align-items: center;
+}
+.deletebtn{
+    width: 7rem;
+    height: 3rem;
+}
+.submitbtn{
+    width: 13rem;
+    height: 3rem;
+}
+@media(min-width: 768px){
+     .submitbtn:hover {
+        background-color: lightgreen;
+        cursor: pointer;
+        opacity: .9;
+        font-size: 1em;
+        font-weight: bold;
+    }
+    .deletebtn:hover{
+        background-color: #e25822;
+        cursor: pointer;
+        opacity: .9;
+        font-size: 1em;
+        font-weight: bold;
+    }
 }

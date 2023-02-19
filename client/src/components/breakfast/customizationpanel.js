@@ -2,21 +2,14 @@ import { useNavigate } from 'react-router-dom'
 import { customizationOptions } from './eggbreakfasts.js';
 import { OrderPad } from '../utility/orderpad.js'
 import { UtilityBar } from '../utility/utilitybar'
+import { CustomizationBtn } from '../utility/customizationbtn';
+
 import "../../css/mainscreen/homescreen-styles.css";
 
 export function CustomizationPanel() {
 
     const addSelectedCustomization = (classification, selection) => {
-    // const item = customizationOptions.menuSelection.message[0]
-    // console.log(item);
-    // item[classification] = selection;
-    // customizationOptions.edit = !customizationOptions.edit;
-    customizationOptions.updateState(classification,selection);
-        // const x = item[classification] = selection;
-        // item[classification] = selection;
-        // customizationOptions.editItems();
-        // console.log(x)
-        // console.log(customizationOptions.edit)
+        customizationOptions.updateState(classification,selection);
     }
 
 
@@ -32,29 +25,31 @@ export function CustomizationPanel() {
     <div className="mainwrap">
       <OrderPad />
       <div className="categorybtnswrap">
-        <ul>Protein Type
-            <li><button onClick={(e) => addSelectedCustomization('Protein', 'Bacon')} className="categorybtns">Bacon</button></li>
-            <li><button onClick={(e) => addSelectedCustomization('Protein', 'Sausage')} className="categorybtns">Sausage</button></li>
-            <li><button className="categorybtns">Chicken</button></li>
-            <li><button className="categorybtns">Ham</button></li>
+      <h6>Egg Style</h6>
+      <ul className='buttonswrap'>
+        <button onClick={(e) => addSelectedCustomization('Eggs', 'Egg Style: Over Easy')} className="categorybtns">Over-Easy</button>
+        <button onClick={(e) => addSelectedCustomization('Eggs', 'Egg Style: Medium')} className="categorybtns">Medium</button>
+        <button onClick={(e) => addSelectedCustomization('Eggs', 'Egg Style: Scrambled')} className="categorybtns">Scrambled</button>
+        <button onClick={(e) => addSelectedCustomization('Eggs', 'Egg Style: Boiled')} className="categorybtns">Boiled</button>
         </ul>
-        <ul>Egg Style
-            <li><button onClick={(e) => addSelectedCustomization('Eggs', 'Egg Style: Over Easy')} className="categorybtns">Over-Easy</button></li>
-            <li><button onClick={(e) => addSelectedCustomization('Eggs', 'Egg Style: Medium')} className="categorybtns">Medium</button></li>
-            <li><button className="categorybtns">Well Done</button></li>
-            <li><button className="categorybtns">Boiled</button></li>
+        <h6>Protein</h6>
+        <ul className='buttonswrap'>
+        <button onClick={(e) => addSelectedCustomization('Protein', 'Protein: Bacon')} className="categorybtns">Bacon</button>
+        <button onClick={(e) => addSelectedCustomization('Protein', 'Protein: Sausage')} className="categorybtns">Sausage</button>
+        <button onClick={(e) => addSelectedCustomization('Protein', 'Protein: Chicken')} className="categorybtns">Chicken</button>
+        <button onClick={(e) => addSelectedCustomization('Protein', 'Protein: Ham')} className="categorybtns">Ham</button>
         </ul>
-        <ul>Toast Type
-            <li><button className="categorybtns">White</button></li>
-            <li><button onClick={(e) => addSelectedCustomization('Toast', 'Wheat')} className="categorybtns">Wheat</button></li>
-            <li><button className="categorybtns">Raisin</button></li>
+        <h6>Toast Type</h6>
+        <ul className='buttonswrap'>
+            <button onClick={(e) => addSelectedCustomization('Toast', 'Toast: White')} className="categorybtns">White</button>
+            <button onClick={(e) => addSelectedCustomization('Toast', 'Toast: Wheat')} className="categorybtns">Wheat</button>
+            <button onClick={(e) => addSelectedCustomization('Toast', 'Toast: Raisin')} className="categorybtns">Raisin</button>
         </ul>
-        
-        <ul>Side
-            <li><button className="categorybtns">Hashbrowns</button></li>
-            <li><button className="categorybtns">Grits</button></li>
+        <h6>Side</h6>
+        <ul className='buttonswrap'>
+            <button onClick={(e) => addSelectedCustomization('Side', 'Side: Hashbrowns')} className="categorybtns">Hashbrowns</button>
+          <button onClick={(e) => addSelectedCustomization('Side', 'Side: Grits')} className="categorybtns">Grits</button>
         </ul>
-           
             </div>
     </div>
       <UtilityBar />

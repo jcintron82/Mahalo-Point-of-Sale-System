@@ -8,8 +8,7 @@ const orderFunc = {};
 const finalOrderArr = [];
 
 function OrderPad() {
-  // const [order, setArr] = useState();
-  const [finalSum, setFinalSum] = useState(0.0);
+  const [finalSum, setFinalSum] = useState(localStorage.getItem('orderSum'));
   const [deleteIndex, setIndex] = useState();
   const [stately, setStately] = useState(false);
   const [waffleIndex, setWaffleIndex] = useState(null);
@@ -42,17 +41,13 @@ function OrderPad() {
 
   const deleteItem = () => {
     let sum = 0;
-    // if (deleteIndex > 0){
     finalOrderArr.splice(deleteIndex, 1);
     finalOrderArr.filter((price) => {
       sum = sum + parseInt(price.Price.$numberDecimal);
     });
     setFinalSum(sum);
+    localStorage.setItem = ('orderSum', finalSum);
     setDeleteIndex(-1);
-    // }
-    // else {
-    console.log(deleteIndex);
-    // }
   };
   const updateDailySales = () => {
     let currentValue = localStorage.getItem("dailySales");
@@ -64,6 +59,7 @@ function OrderPad() {
     if (finalOrderArr.length > 0) {
       finalOrderArr.splice(0);
       updateDailySales();
+      localStorage.setItem = ('orderSum', finalSum);
       setFinalSum(0.0);
     } else {
       console.log("Add Items Please");
@@ -72,6 +68,7 @@ function OrderPad() {
   const totalFinalSum = (itemPrice) => {
     let sum = parseInt(itemPrice);
     setFinalSum(finalSum + sum);
+    localStorage.setItem = ('orderSum', finalSum);
   };
   return (
     <div className="orderpadwrap">
@@ -82,7 +79,7 @@ function OrderPad() {
               onClick={(e) => {
                 setDeleteIndex(index);
               }}
-              className={deleteIndex === index ? "hide" : "priceli"}
+              className={deleteIndex === index ? "highlightselectedproduct" : "priceli"}
               key={index}
             >
               {" "}
@@ -111,18 +108,19 @@ function OrderPad() {
                       {item.AddIns}
                       <br></br>
                     </li>
+                    <li>{item.Price.$numberDecimal}</li>
                 </ul>
-                {item.Price.$numberDecimal}
               </div>
             </li>
           ))}
         </ol>
       </ol>
-      <button onClick={(e) => deleteItem({ deleteIndex })}>X</button>
-      <h5 className="subtotalWrap">Order Subtotal: ${finalSum.toFixed(2)}</h5>
-      <button className="utilitybtns" onClick={submitOrder}>
+      <h5 className="subtotalWrap">Order Subtotal: ${finalSum}</h5>
+      <span className="btnswrap">
+      <button className="deletebtn" onClick={(e) => deleteItem({ deleteIndex })}>Delete Item</button>
+      <button className="submitbtn" onClick={submitOrder}>
         Submit Order
-      </button>
+      </button></span>
     </div>
   );
 }

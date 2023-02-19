@@ -15,39 +15,56 @@
 }
 .categorybtnswrap{
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: column nowrap;
     align-items: center;
     justify-content: center;
     width: 95%;
 }
 
 .categorybtns{
-    height: 5rem;
-    width: 5rem;
+    width: 100%;
     font-size: 1em;
     margin: 2rem 0;
-    max-height: 10rem;
+    max-width: 15rem;
     background-color: #0B3954;
     color: white;
     margin: .5rem;
+    height: 10vh;
 }
-
-
+.buttonswrap{
+    width: 100%;
+    display: flex;
+    padding-left: 0;
+    margin: 0;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+h6{
+    width: 100%;
+    text-indent: 5vw;
+    font-size: 1em;
+    margin: 0;
+}
 
 @media(min-width:768px) {
     .mainwrap{
         flex-direction: row;
-        height: 87vh;
+   
     }
     .categorybtnswrap{
-    flex-direction: row;
+    flex-flow: row nowrap;
     justify-content: center;
     flex-wrap: wrap;
-    margin-right: 10%;
+    margin-right: 5%;
+    height: 100%;
     }
     .categorybtns:hover{
         background-color: #136290;
         cursor: pointer;
         opacity: .9;
     }
+    .categorybtns{
+        width: 40%;
+    }
+        
 }
