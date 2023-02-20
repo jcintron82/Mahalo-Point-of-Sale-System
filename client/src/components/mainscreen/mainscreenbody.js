@@ -33,7 +33,7 @@ export function HomeScreenBody() {
 
   return (
   <div className='body'>
-    <h1>Welcome Back {name}</h1>
+    <h1 className='welcomemsg'>Welcome Back {name}</h1>
     <div className="mainwrap">
       <OrderPad />
       <div className="categorybtnswrap">

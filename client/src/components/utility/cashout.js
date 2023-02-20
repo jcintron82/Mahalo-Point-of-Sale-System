@@ -8,7 +8,7 @@ export function CashOutScreen() {
   const [dailySales, setDailySales] = useState(localStorage.getItem('dailySales'));
   return (
     <div>
-        <h1>Today's Sales {dailySales}</h1>
+        <h1>Today's Sales ${dailySales}</h1>
         <h1>Lifetime Sales {lifetimeSales}</h1>
    <UtilityBar />
    <button>Cash Out</button>

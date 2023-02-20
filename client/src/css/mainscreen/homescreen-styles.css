@@ -7,10 +7,15 @@
     background-color: #E9EDEB;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     height: 100%;
     width: 98%;
+    align-self: center;
+}
+.welcomemsg{
+    position: static;
+    margin-bottom: .25rem;
     align-self: center;
 }
 .categorybtnswrap{
@@ -19,8 +24,8 @@
     align-items: center;
     justify-content: center;
     width: 95%;
+    
 }
-
 .categorybtns{
     width: 100%;
     font-size: 1em;
@@ -30,6 +35,8 @@
     color: white;
     margin: .5rem;
     height: 10vh;
+    border-radius: .5rem;
+    font-weight: 500;
 }
 .buttonswrap{
     width: 100%;

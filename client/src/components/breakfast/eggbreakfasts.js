@@ -6,7 +6,7 @@ import "../../css/mainscreen/homescreen-styles.css";
 export { customizationOptions, EggBreakfasts };
 
 const customizationOptions = {
-    edit: false,
+    
 }
 function EggBreakfasts() {
     const queryArr = [];

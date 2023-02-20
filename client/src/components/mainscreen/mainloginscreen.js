@@ -39,7 +39,7 @@ const incorrectPassword = (name, sales) => {
         let numberDecimal = productPrice["$numberDecimal"];
         const finalFormattedNum = parseInt(numberDecimal)
 
-        localStorage.setItem("lifetimeSales", finalFormattedNum.toFixed(2));
+        localStorage.setItem("orderSum", 0.00);
         localStorage.setItem("dailySales", 0.00);
         navigate(data.code);
         }
@@ -59,20 +59,9 @@ const incorrectPassword = (name, sales) => {
       }
       receiveSuccessfulLogin();
 };
-  
-//   const onClick = (section) => {
-//     let formattedArg = "/" + section;
-//     navigate(formattedArg);
-//   };
-// const getUser = async () => {
-//     const call = await fetch("http://localhost:8000/login");
-//     const data = await call.json();
-//     console.log(data)
-//     receiveSuccessfulLogin()
-// };
 
   return (
-    <div className='body'>
+    <div className='loginbody'>
         <h1 className="incorrectpasswordwrapper">{incorrectPasswordMessage}</h1>
         <label>Employee ID 
             <input required type='number' onChange={(e) => setUsernmae(e.target.value)}></input>
@@ -80,7 +69,7 @@ const incorrectPassword = (name, sales) => {
         <label>Password
             <input required type='password' onChange={(e) => setPassword(e.target.value)}></input>
         </label>
-        <button onClick={(e) => {login(); receiveSuccessfulLogin()}}>Log-In</button>
+        <button className="loginbtn" onClick={(e) => {login(); receiveSuccessfulLogin()}}>Log-In</button>
     </div>
 
   );

@@ -5,29 +5,33 @@
     padding: 0.25rem 0.5rem;
     height: 10vh;
     background-color: #E9EDEB;
-    position: relative;
-    bottom: 0;
+    position: absolute;
+    bottom: 1.5rem;
     margin-top: 1vh;
     width: 100%;
 }
 .utilitybtns{
-    width: 25%;
-    max-width: 10rem;
+    width: 100%;
+    font-size: 1em;
+    margin: 2rem 0;
+    max-width: 9rem;
     background-color: #0B3954;
     color: white;
-    font-size: .8em;
-    border-radius: 0.2em;
-    margin: 0 0.25rem;
+    margin: .5rem;
+    height: 10vh;
+    border-radius: .5rem;
+    font-weight: 500;
 }
 .backarrowsvg{
     display: inline;
     width: 3rem;
-    fill: white;
+    fill: #E9EDEB;
 }
 @media(min-width:768px){
     .utilitybtns:hover{
         background-color: #136290;
         cursor: pointer;
         opacity: .9;
+        stroke: #96031A;
     }
 }

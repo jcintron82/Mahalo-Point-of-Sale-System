@@ -9,15 +9,28 @@
     max-width: 25rem;
     margin: .3rem;
     background-color: lightgray;
-    
+    align-self: flex-start;
+    margin-top: 2rem;
 }
 .orderpad-items-wrap{
     display: flex;
     flex-direction: column;
-    justify-content:space-evenly;
+    justify-content: space-evenly;
     width: 99%;
+    max-height: 50vh;
     padding-left: 0;
-
+    overflow-y: scroll;
+    /* overflow: hidden; */
+    overflow-x: hidden;
+}
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0,0,0,.5);
+    -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
 }
 ol{
     width: 30%;
@@ -52,8 +65,8 @@ ol{
     display: flex;
     margin: 0;
     font-size: 1.25em;
-    text-align: left;
-    padding-right: 1vw;
+    align-items: center;
+    padding-left: 0.25rem;
 }
 li::marker{
     color: transparent;
@@ -74,13 +87,17 @@ li{
 .itemwrap{
     width: 100%;
     display: flex;
-    justify-content: flex-start;
+    justify-content:space-between;
 
 }
 .qtyinput{
     width: 60%;
     max-width: 3rem;
     text-align: center;
+}
+.lipricewrap{
+    font-weight: bold;
+    padding-right: 0.25rem;
 }
 .highlightselectedproduct{
     border: dotted red 4px;
@@ -123,10 +140,11 @@ h5{
         font-weight: bold;
     }
     .deletebtn:hover{
-        background-color: #e25822;
+        background-color: #96031A;
         cursor: pointer;
         opacity: .9;
         font-size: 1em;
         font-weight: bold;
+        color: white;
     }
 }
