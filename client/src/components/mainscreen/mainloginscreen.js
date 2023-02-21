@@ -4,18 +4,14 @@ import "../../css/mainscreen/loginscreen.css";
 export {employeeMetrics, LoginScreen}
 
 const employeeMetrics = {
-    name:'a',
-    lifetimeSales:'a',
-}
-
-const incorrectPassword = (name, sales) => {
-    
+    name:'',
+    lifetimeSales:'',
 }
  function LoginScreen() {
     const [usernameInput, setUsernmae] = useState('');
     const [passwordInput, setPassword] = useState('');
     const [incorrectPasswordMessage, setMessage] = useState(true);
-
+    
     const credentials = {
         username: usernameInput,
         password: passwordInput
@@ -33,14 +29,16 @@ const incorrectPassword = (name, sales) => {
         employeeMetrics.name = data.employeeName
         employeeMetrics.lifetimeSales = data.lifetimeSales;
         localStorage.setItem("name", data.employeeName);
+
         //Parses and formats lifetime sales number
         const parsedPrice = JSON.stringify(data.lifetimeSales);
         const productPrice = JSON.parse(parsedPrice);
         let numberDecimal = productPrice["$numberDecimal"];
         const finalFormattedNum = parseInt(numberDecimal)
 
-        localStorage.setItem("orderSum", 0.00);
+        localStorage.setItem("lifetimeSales",finalFormattedNum.toFixed(2));
         localStorage.setItem("dailySales", 0.00);
+        localStorage.setItem("employeeID", data.employeeID);
         navigate(data.code);
         }
 }
