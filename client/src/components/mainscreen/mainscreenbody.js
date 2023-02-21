@@ -38,7 +38,7 @@ export function HomeScreenBody() {
       <OrderPad />
       <div className="categorybtnswrap">
         <button onClick={(e) => onClick("breakfast")} className="categorybtns">Breakfast</button>
-        <button className="categorybtns">Lunch/Dinner</button>
+        <button onClick={(e) => onClick("lunchdinner")}className="categorybtns">Lunch/Dinner</button>
         <button className="categorybtns">Kids Menu</button>
       </div>
     </div>

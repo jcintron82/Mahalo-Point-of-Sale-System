@@ -5,8 +5,10 @@ import BreakfastMain from "../components/breakfast/breakfastmain";
 import WafflesScreen from "../components/breakfast/waffleswrap";
 import CashOutScreen from "../components/utility/cashout";
 import EggBreakfasts from "../components/breakfast/eggbreakfasts";
+import LunchDinner from "../components/lunchdinner.js/lunchdinner";
+import ClassicPlate from "../components/lunchdinner.js/classicplate";
 import CustomizationPanel from "../components/breakfast/customizationpanel";
-
+import ManagerPanel from "../components/utility/manageroptions";
 const RouteSwitch = () => {
   return (
     <BrowserRouter>
@@ -17,7 +19,11 @@ const RouteSwitch = () => {
         <Route path="/login" element={<LoginScreen />} />
         <Route path="/cashout" element={<CashOutScreen />} />
         <Route path="/eggbreakfasts" element={<EggBreakfasts />} />
+        <Route path="/lunchdinner" element={<LunchDinner />} />
         <Route path="/customize" element={<CustomizationPanel />} />
+        <Route path="/classicplate" element={<ClassicPlate />} />
+
+        <Route path="/manageroptions" element={<ManagerPanel />} />
       </Routes>
     </BrowserRouter>
   );

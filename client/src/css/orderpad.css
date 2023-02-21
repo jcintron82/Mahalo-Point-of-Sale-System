@@ -57,9 +57,9 @@ ol{
     align-self: flex-start;
     align-items: center;
     width: 99%;
-    height: 7vh;
-    margin: 0.5rem 0;
-    padding: 1rem 0;
+    height: 100%;
+    /* margin: 0.5rem 0;
+    padding: 1rem 0; */
 }
 .itemnamewrap{
     display: flex;
@@ -87,6 +87,7 @@ li{
 .itemwrap{
     width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content:space-between;
 
 }
@@ -97,7 +98,9 @@ li{
 }
 .lipricewrap{
     font-weight: bold;
-    padding-right: 0.25rem;
+    padding-right: 1rem;
+    text-align: right;
+    margin: 0;
 }
 .highlightselectedproduct{
     border: dotted red 4px;
@@ -130,6 +133,9 @@ h5{
 .submitbtn{
     width: 13rem;
     height: 3rem;
+}
+.customrequestwrap{
+    max-width: 1rem;
 }
 @media(min-width: 768px){
      .submitbtn:hover {

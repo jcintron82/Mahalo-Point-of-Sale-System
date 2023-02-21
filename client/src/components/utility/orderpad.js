@@ -12,17 +12,17 @@ function OrderPad() {
   const [finalSum, setFinalSum] = useState(priceArr[0]);
   const [deleteIndex, setIndex] = useState();
   const [stately, setStately] = useState(false);
-  const [waffleIndex, setWaffleIndex] = useState(null);
+  const [customInput, setCustomInput] = useState(null);
 
   orderFunc.newOrder = () => {
     const PRODUCT = orderPadArr[0].message[0];
     finalOrderArr.push(PRODUCT);
     orderPadArr.splice(0);
     totalFinalSum(PRODUCT.Price.$numberDecimal);
-    PRODUCT.category === "Waffles"
-      ? setWaffleIndex(true)
-      : setWaffleIndex(null);
-    console.log(PRODUCT.category);
+    // PRODUCT.category === "Waffles"
+    //   ? setWaffleIndex(true)
+    //   : setWaffleIndex(null);
+    // console.log(PRODUCT.category);
     setDeleteIndex(-1);
     //It's important to leave this code below and use the manipulated arr to do the state change
     //otherwise the subtotal state rerenders to 0 when routing to a new page
@@ -73,7 +73,17 @@ function OrderPad() {
     let sum = parseInt(itemPrice);
     setFinalSum(finalSum + sum);
   };
-
+  const specificCuztomizations = () => { 
+    setCustomInput(!customInput)
+  };
+  const recordChange = (input) => {
+    // console.log(input.target.value);
+    console.log(finalOrderArr)
+    finalOrderArr[deleteIndex].customRequest = input.target.value;
+    setStately(!stately);
+    // setRequest(input.target.value)
+  }
+  const clearInput = () => { }
   customizationOptions.updateState = (classification, input) => {
     finalOrderArr[deleteIndex][classification] = input;
     setStately(!stately);
@@ -120,17 +130,23 @@ function OrderPad() {
                   </li>
                 </ul>
                 <h3 className="lipricewrap">{item.Price.$numberDecimal}</h3>
+                <h6 className="customrequestwrap">{ item.customRequest }</h6>
               </div>
             </li>
           ))}
         </ol>
       </ol>
       <h5 className="subtotalWrap">Order Subtotal: ${finalSum.toFixed(2)}</h5>
+      <button
+          className="deletebtn"
+          onClick={(e) => specificCuztomizations({ deleteIndex })}>
+          Specific Cuztomizations
+        </button>
+        {customInput ? <label><input onChange={recordChange}></input><button >Clear</button></label>: <div></div>}
       <span className="btnswrap">
         <button
           className="deletebtn"
-          onClick={(e) => deleteItem({ deleteIndex })}
-        >
+          onClick={(e) => deleteItem({ deleteIndex })}>
           Delete Item
         </button>
         <button className="submitbtn" onClick={submitOrder}>
