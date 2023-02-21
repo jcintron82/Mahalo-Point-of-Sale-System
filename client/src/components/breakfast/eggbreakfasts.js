@@ -36,8 +36,6 @@ function EggBreakfasts() {
       orderPadArr.push(data);
       orderFunc.newOrder();
       customizationOptions.menuSelection = data;
-    //   console.log(customizationOptions.menuSelection)
-    //   customizationOptions.menuSelection.message[0].Eggs = 'Over Easy'
     } catch (err) {
       console.log(err);
     }
