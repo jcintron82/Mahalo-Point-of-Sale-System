@@ -6,6 +6,7 @@ const authController = require("../controllers/login");
 const homeController = require("../controllers/home");
 const loginController = require("../controllers/login");
 const customizedPlates = require("../controllers/customizedplates");
+const updateMetrics = require("../controllers/servermetrics");
 // const { ensureAuth, ensureGuest } = require("../middleware/auth");
 
 //Main Routes - simplified for now
@@ -19,4 +20,6 @@ router.get("/confirmauth", authController.getAuthConfirmation);
 
 router.get("/customizedplates",  customizedPlates.getIndex);
 router.post("/customizedplates",  customizedPlates.Post);
+
+router.post("/updatemetrics",  updateMetrics.updateMetrics);
 module.exports = router;
