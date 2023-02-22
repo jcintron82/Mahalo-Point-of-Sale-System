@@ -96,7 +96,6 @@ function OrderPad() {
       // setAddins(addIns + input);
       finalOrderArr[deleteIndex][classification] = input;
       setStately(!stately);
-      console.log(x)
     }
   };
   return (
