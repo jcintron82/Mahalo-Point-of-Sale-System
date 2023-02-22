@@ -12,8 +12,8 @@ function OrderPad() {
   const [finalSum, setFinalSum] = useState(priceArr[0]);
   const [deleteIndex, setIndex] = useState();
   const [stately, setStately] = useState(false);
-  const [addIns, setAddins] = useState('');
-  const [customInput, setCustomInput] = useState(null);
+  const [input, setInput] = useState('');
+  const [customInput, setCustomInput] = useState(false);
 
   orderFunc.newOrder = () => {
     const PRODUCT = orderPadArr[0].message[0];
@@ -26,14 +26,14 @@ function OrderPad() {
     //   : setWaffleIndex(null);
     // console.log(PRODUCT.category);
     setDeleteIndex(-1);
-    //It's important to leave this code below and use the manipulated arr to do the state change
-    //otherwise the subtotal state rerenders to 0 when routing to a new page
     const sum = parseInt(priceArr[0]) + parseInt(PRODUCT.Price.$numberDecimal);
     priceArr.length > 0
       ? (priceArr[0] = sum)
       : priceArr.push(PRODUCT.Price.$numberDecimal);
   };
-
+  //Runs on item click and uses the it's placement in the list to get its correlated
+  //array placement which the delete index becomes. This is here so we can freely delete and
+  //edit items in singularity
   const setDeleteIndex = (index) => {
     setStately(!stately);
     deleteIndex === index ? setIndex(-1) : setIndex(index);
@@ -53,51 +53,61 @@ function OrderPad() {
     setFinalSum(sum);
     setDeleteIndex(deleteIndex - 1);
   };
+  const totalFinalSum = (itemPrice) => {
+    let sum = parseInt(itemPrice);
+    setFinalSum(finalSum + sum);
+  };
+
+  const submitOrder = () => {
+    if (finalOrderArr.length > 0) {
+      finalOrderArr.splice(0);
+      updateDailySales();
+      setFinalSum(0.0);
+      priceArr[0] = 0.00;
+    } else {
+      console.log("Add Items Please");
+    }
+  };
   const updateDailySales = () => {
     let currentValue = localStorage.getItem("dailySales");
     const formattedValue = parseInt(currentValue);
     const final = formattedValue + finalSum;
     localStorage.setItem('dailySales' , final.toFixed(2));
   };
-  const submitOrder = () => {
-    if (finalOrderArr.length > 0) {
-      finalOrderArr.splice(0);
-      updateDailySales();
-      console.log(priceArr)
-      setFinalSum(0.0);
-      priceArr[0] = 0.00;
-      console.log(priceArr)
-    } else {
-      console.log("Add Items Please");
-    }
-  };
-  const totalFinalSum = (itemPrice) => {
-    let sum = parseInt(itemPrice);
-    setFinalSum(finalSum + sum);
-  };
+
+  //These next two functions handle the showing/hiding of the customization input
+  //and the displaying of the input onto the selected product
   const specificCuztomizations = () => { 
-    setCustomInput(!customInput)
+    setCustomInput(!customInput);
+    console.log(customInput)
+    if(customInput === true){
+      console.log(customInput)
+    }
+    else{
+      setInput('')
+    }
   };
   const recordChange = (input) => {
-    // console.log(input.target.value);
-    console.log(finalOrderArr)
     finalOrderArr[deleteIndex].customRequest = input.target.value;
-    setStately(!stately);
-    // setRequest(input.target.value)
+    setInput(input.target.value)
+    // setStately(!stately);
   }
-
+  //How we're transporting cuztomization data from other components without prop drilling.
+  //A calling of this function can be found in any item cuztomization component
   customizationOptions.updateState = (classification, input) => {
-    const x = finalOrderArr[deleteIndex][classification]
-    if (x != ''){
-      finalOrderArr[deleteIndex][classification] = x + input;
-      setStately(!stately);
+    if (finalOrderArr[deleteIndex][classification] != ''){
+      finalOrderArr[deleteIndex][classification] = finalOrderArr[deleteIndex][classification] + input
+
     }
     else {
-      // setAddins(addIns + input);
-      finalOrderArr[deleteIndex][classification] = input;
-      setStately(!stately);
+      finalOrderArr[deleteIndex][classification] = 'AddIns: ' + input;
     }
+    setStately(!stately);
   };
+
+  const clearCustomization = () => {
+    setInput('');
+  }
   return (
     <div className="orderpadwrap">
       <ol className="orderpad-ols-wrap">
@@ -147,7 +157,7 @@ function OrderPad() {
         </ol>
       </ol>
       <h5 className="subtotalWrap">Order Subtotal: ${finalSum.toFixed(2)}</h5>
-         <label className='cuztomizationlabel'><input className={customInput ? "customizationinput" : "hide"} onChange={recordChange}></input><button >Clear</button></label>
+         <label className={customInput ? "customizationinput" : "hide"} ><input className="customizationinput"  value={input} onChange={recordChange}></input><button className="clearbtn" onClick={clearCustomization}>Clear</button></label>
       <span className="btnswrap">
       <button
           className="deletebtn"

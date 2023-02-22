@@ -25,24 +25,24 @@ export function ClassicPlate() {
       <div className="categorybtnswrap">
         <h6>Protein</h6>
         <ul className='buttonswrap'>
-        <button onClick={(e) => addSelectedCustomization('Protein', 'Protein: Sirloin')} className="categorybtns">Sirloin</button>
-        <button onClick={(e) => addSelectedCustomization('Protein', 'Protein: T-Bone')} className="categorybtns">T-Bone</button>
-        <button onClick={(e) => addSelectedCustomization('Protein', 'Protein: Country Ham')} className="categorybtns">Country Ham</button>
-        <button onClick={(e) => addSelectedCustomization('Protein', 'Protein: Grilled Chicken')} className="categorybtns">Grilled Chicken</button>
+        <button onClick={(e) => addSelectedCustomization('Protein', 'Protein: Sirloin |')} className="categorybtns">Sirloin</button>
+        <button onClick={(e) => addSelectedCustomization('Protein', 'Protein: T-Bone |')} className="categorybtns">T-Bone</button>
+        <button onClick={(e) => addSelectedCustomization('Protein', 'Protein: Country Ham |')} className="categorybtns">Country Ham</button>
+        <button onClick={(e) => addSelectedCustomization('Protein', 'Protein: Grilled Chicken |')} className="categorybtns">Grilled Chicken</button>
         </ul>
         <h6>Meat Temp</h6>
         <ul className='buttonswrap'>
             <button onClick={(e) => addSelectedCustomization('steakTemp', 'Temp: Rare')} className="categorybtns">Rare</button>
-            <button onClick={(e) => addSelectedCustomization('steakTemp', 'Temp: Rare')} className="categorybtns">Med-Rare</button>
-            <button onClick={(e) => addSelectedCustomization('steakTemp', 'Temp: Rare')} className="categorybtns">Medium</button>
-            <button onClick={(e) => addSelectedCustomization('steakTemp', 'Temp: Rare')} className="categorybtns">Well-Done</button>
+            <button onClick={(e) => addSelectedCustomization('steakTemp', 'Temp: Med-Rare')} className="categorybtns">Med-Rare</button>
+            <button onClick={(e) => addSelectedCustomization('steakTemp', 'Temp: Medium')} className="categorybtns">Medium</button>
+            <button onClick={(e) => addSelectedCustomization('steakTemp', 'Temp: Well-Done')} className="categorybtns">Well-Done</button>
         </ul>
         <h6>Toast Type</h6>
         <ul className='buttonswrap'>
-            <button onClick={(e) => addSelectedCustomization('Toast', 'Toast: White')} className="categorybtns">White</button>
-            <button onClick={(e) => addSelectedCustomization('Toast', 'Toast: Wheat')} className="categorybtns">Wheat</button>
-            <button onClick={(e) => addSelectedCustomization('Toast', 'Toast: Texas')} className="categorybtns">Texas</button>
-            <button onClick={(e) => addSelectedCustomization('Toast', 'Toast: Raisin')} className="categorybtns">Raisin</button>
+            <button onClick={(e) => addSelectedCustomization('Toast', 'Toast: White |')} className="categorybtns">White</button>
+            <button onClick={(e) => addSelectedCustomization('Toast', 'Toast: Wheat |')} className="categorybtns">Wheat</button>
+            <button onClick={(e) => addSelectedCustomization('Toast', 'Toast: Texas |')} className="categorybtns">Texas</button>
+            <button onClick={(e) => addSelectedCustomization('Toast', 'Toast: Raisin |')} className="categorybtns">Raisin</button>
         </ul>
         <h6>Side</h6>
         <ul className='buttonswrap'>

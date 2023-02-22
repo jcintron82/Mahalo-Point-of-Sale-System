@@ -31,26 +31,26 @@ export function BLT() {
           <h6>Toast Type</h6>
           <ul className="buttonswrap">
             <button
-              onClick={(e) => addSelectedCustomization("Toast", "Toast: White")}
+              onClick={(e) => addSelectedCustomization("Toast", "Toast: White |")}
               className="categorybtns"
             >
               White
             </button>
             <button
-              onClick={(e) => addSelectedCustomization("Toast", "Toast: Wheat")}
+              onClick={(e) => addSelectedCustomization("Toast", "Toast: Wheat |")}
               className="categorybtns"
             >
               Wheat
             </button>
             <button
-              onClick={(e) => addSelectedCustomization("Toast", "Toast: Texas")}
+              onClick={(e) => addSelectedCustomization("Toast", "Toast: Texas |")}
               className="categorybtns"
             >
               Texas
             </button>
             <button
               onClick={(e) =>
-                addSelectedCustomization("Toast", "Toast: Raisin")
+                addSelectedCustomization("Toast", "Toast: Raisin |")
               }
               className="categorybtns"
             >
