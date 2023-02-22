@@ -57,7 +57,7 @@ function SandwichesWrap() {
             </button>
             <button onClick={(e) => onClick('texas', 'Texas Melt')} className="categorybtns">Texas Melt
             </button>
-            <button onClick={(e) => onClick('blt', 'BLT')} className="categorybtns">1/4lb Angus Burger
+            <button onClick={(e) => onClick('angusburger', '1/4lb Angus Burger')} className="categorybtns">1/4lb Angus Burger
             </button>
             </div>
     </div>

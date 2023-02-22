@@ -12,6 +12,7 @@ import ManagerPanel from "../components/utility/manageroptions";
 import SandwichesWrap from "../components/lunchdinner.js/sandwiches/sandwicheswrap";
 import BLT from "../components/lunchdinner.js/sandwiches/blt";
 import TexasMelt from "../components/lunchdinner.js/sandwiches/texasmelt";
+import AngusBurger from "../components/lunchdinner.js/sandwiches/angusburger";
 const RouteSwitch = () => {
   return (
     <BrowserRouter>
@@ -28,6 +29,7 @@ const RouteSwitch = () => {
 
         <Route path="/blt" element={<BLT />} />
         <Route path="/texas" element={<TexasMelt />} />
+        <Route path="/angusburger" element={<AngusBurger />} />
         <Route path="/sandwiches" element={<SandwichesWrap />} />
         <Route path="/manageroptions" element={<ManagerPanel />} />
       </Routes>
