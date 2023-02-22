@@ -9,6 +9,8 @@ import LunchDinner from "../components/lunchdinner.js/lunchdinner";
 import ClassicPlate from "../components/lunchdinner.js/classicplate";
 import CustomizationPanel from "../components/breakfast/customizationpanel";
 import ManagerPanel from "../components/utility/manageroptions";
+import SandwichesWrap from "../components/lunchdinner.js/sandwiches/sandwicheswrap";
+import BLT from "../components/lunchdinner.js/sandwiches/blt";
 const RouteSwitch = () => {
   return (
     <BrowserRouter>
@@ -23,6 +25,8 @@ const RouteSwitch = () => {
         <Route path="/customize" element={<CustomizationPanel />} />
         <Route path="/classicplate" element={<ClassicPlate />} />
 
+        <Route path="/blt" element={<BLT />} />
+        <Route path="/sandwiches" element={<SandwichesWrap />} />
         <Route path="/manageroptions" element={<ManagerPanel />} />
       </Routes>
     </BrowserRouter>

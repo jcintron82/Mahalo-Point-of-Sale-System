@@ -5,7 +5,7 @@
     align-items: flex-start;
     border: solid black 2px;
     width: 95%;
-    min-height: 70vh;
+    height: 80vh;
     max-width: 25rem;
     margin: .3rem;
     background-color: lightgray;
@@ -15,12 +15,11 @@
 .orderpad-items-wrap{
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-between;
     width: 99%;
-    max-height: 50vh;
+    max-height: 40vh;
     padding-left: 0;
     overflow-y: scroll;
-    /* overflow: hidden; */
     overflow-x: hidden;
 }
 ::-webkit-scrollbar {
@@ -114,6 +113,7 @@ li{
     display: flex;
     align-self: flex-end;
     padding-right: 10%;
+    margin: 0;
 }
 h5{
     display: flex;
@@ -129,28 +129,57 @@ h5{
 .deletebtn{
     width: 7rem;
     height: 3rem;
+    margin: .5rem;
 }
 .submitbtn{
     width: 13rem;
     height: 3rem;
+    margin: .5rem;
+}
+.cuztomizationlabel{
+    width: 100%;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    height:10vh;
 }
 .customrequestwrap{
-    max-width: 1rem;
+    text-align: left;
+    padding: 0.5rem;
+    text-indent: 0;
+}
+.hide{
+    display: none;
+}
+.addinswrap{
+    border: solid 2px;
+    position: relative;
+    top: 18.5%;
+}
+.customizationinput{
+    font-size: 1em;
+    width: 40vw;
+    max-width: 25rem;
+    align-self: center;
+    margin: 1rem 0;
 }
 @media(min-width: 768px){
      .submitbtn:hover {
         background-color: lightgreen;
         cursor: pointer;
         opacity: .9;
-        font-size: 1em;
+        font-size: .9em;
         font-weight: bold;
     }
     .deletebtn:hover{
         background-color: #96031A;
         cursor: pointer;
         opacity: .9;
-        font-size: 1em;
+        font-size: .85em;
         font-weight: bold;
         color: white;
+    }
+    .priceli:hover, .highlightselectedproduct:hover{
+        cursor: pointer;
     }
 }

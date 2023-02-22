@@ -1,12 +1,12 @@
 import { useNavigate } from 'react-router-dom';
-import { OrderPad, orderPadArr, orderFunc } from '../utility/orderpad.js';
-import { UtilityBar } from '../utility/utilitybar';
-import "../../css/mainscreen/homescreen-styles.css";
-export { customizationOptions, LunchDinner };
+import { OrderPad, orderPadArr, orderFunc } from '../../utility/orderpad.js';
+import { UtilityBar } from '../../utility/utilitybar';
+import "../../../css/mainscreen/homescreen-styles.css";
+export { customizationOptions, SandwichesWrap };
 const customizationOptions = {
     
 };
-function LunchDinner() {
+function SandwichesWrap() {
     const queryArr = [];
     
   const navigate = useNavigate();
@@ -53,9 +53,11 @@ function LunchDinner() {
     <div className="mainwrap">
       <OrderPad />
       <div className="categorybtnswrap">
-            <button onClick={(e) => onClick('classicplate', 'Classic Plate')} className="categorybtns">Classic Plate
+            <button onClick={(e) => onClick('blt', 'BLT')} className="categorybtns">BLT
             </button>
-            <button onClick={(e) => onClick('sandwiches')} className="categorybtns">Sandwiches
+            <button onClick={(e) => onClick('texas', 'Texas Melt')} className="categorybtns">Texas Melt
+            </button>
+            <button onClick={(e) => onClick('blt', 'BLT')} className="categorybtns">1/4lb Angus Burger
             </button>
             </div>
     </div>
@@ -64,4 +66,4 @@ function LunchDinner() {
   );
 }
 
-export default LunchDinner;
+export default SandwichesWrap;

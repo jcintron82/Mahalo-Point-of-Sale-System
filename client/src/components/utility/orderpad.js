@@ -12,6 +12,7 @@ function OrderPad() {
   const [finalSum, setFinalSum] = useState(priceArr[0]);
   const [deleteIndex, setIndex] = useState();
   const [stately, setStately] = useState(false);
+  const [addIns, setAddins] = useState('');
   const [customInput, setCustomInput] = useState(null);
 
   orderFunc.newOrder = () => {
@@ -19,6 +20,7 @@ function OrderPad() {
     finalOrderArr.push(PRODUCT);
     orderPadArr.splice(0);
     totalFinalSum(PRODUCT.Price.$numberDecimal);
+    //Code I will eventually factor for the waffles and to prevent non applicapable addins to display
     // PRODUCT.category === "Waffles"
     //   ? setWaffleIndex(true)
     //   : setWaffleIndex(null);
@@ -83,10 +85,19 @@ function OrderPad() {
     setStately(!stately);
     // setRequest(input.target.value)
   }
-  const clearInput = () => { }
+
   customizationOptions.updateState = (classification, input) => {
-    finalOrderArr[deleteIndex][classification] = input;
-    setStately(!stately);
+    const x = finalOrderArr[deleteIndex][classification]
+    if (x != ''){
+      finalOrderArr[deleteIndex][classification] = x + input;
+      setStately(!stately);
+    }
+    else {
+      // setAddins(addIns + input);
+      finalOrderArr[deleteIndex][classification] = input;
+      setStately(!stately);
+      console.log(x)
+    }
   };
   return (
     <div className="orderpadwrap">
@@ -112,12 +123,11 @@ function OrderPad() {
                     <br></br>
                   </li>
                   <li>
-                    {item.Toast}
-                    <br></br>
+                    {item.Protein}<br></br>
+                    {item.steakTemp}
                   </li>
                   <li>
-                    {item.Protein}
-                    {item.steakTemp}
+                    {item.Toast}
                     <br></br>
                   </li>
                   <li>
@@ -128,22 +138,23 @@ function OrderPad() {
                     {item.AddIns}
                     <br></br>
                   </li>
+                  
                 </ul>
-                <h3 className="lipricewrap">{item.Price.$numberDecimal}</h3>
-                <h6 className="customrequestwrap">{ item.customRequest }</h6>
+                <h3 className="lipricewrap">${item.Price.$numberDecimal}</h3>
+                <h6 className="customrequestwrap">Special<br></br> Instructions: { item.customRequest }</h6>
               </div>
             </li>
           ))}
         </ol>
       </ol>
       <h5 className="subtotalWrap">Order Subtotal: ${finalSum.toFixed(2)}</h5>
+         <label className='cuztomizationlabel'><input className={customInput ? "customizationinput" : "hide"} onChange={recordChange}></input><button >Clear</button></label>
+      <span className="btnswrap">
       <button
           className="deletebtn"
           onClick={(e) => specificCuztomizations({ deleteIndex })}>
           Specific Cuztomizations
         </button>
-        {customInput ? <label><input onChange={recordChange}></input><button >Clear</button></label>: <div></div>}
-      <span className="btnswrap">
         <button
           className="deletebtn"
           onClick={(e) => deleteItem({ deleteIndex })}>
