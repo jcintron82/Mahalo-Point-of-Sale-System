@@ -6,11 +6,13 @@ export { OrderPad, orderPadArr, orderFunc, finalOrderArr};
 const orderPadArr = [];
 const orderFunc = {};
 const finalOrderArr = [];
-const priceArr = [0.0];
+const priceArr = [0,0];
 const managementIndexTracker = 0;
 
 function OrderPad() {
   const [finalSum, setFinalSum] = useState(priceArr[0]);
+  const [tips, setTips] = useState(priceArr[1]);
+  const [tipsinput, setTipsInput] = useState(false);
   const [deleteIndex, setIndex] = useState();
   const [stately, setStately] = useState(false);
   const [input, setInput] = useState('');
@@ -88,9 +90,14 @@ function OrderPad() {
       setInput('')
     }
   };
-  const recordChange = (input) => {
+  const recordChange = ( input) => {
     finalOrderArr[deleteIndex].customRequest = input.target.value;
     setInput(input.target.value)
+    // setStately(!stately);
+  }
+  const recordTip = (input) => {
+    priceArr[1] = input.target.value;
+    setTips(priceArr[1])
     // setStately(!stately);
   }
   //How we're transporting cuztomization data from other components without prop drilling.
@@ -112,10 +119,22 @@ function OrderPad() {
     else {
       finalOrderArr[deleteIndex].Price.$numberDecimal = final.toFixed(2);
     }
+    console.log(finalOrderArr[deleteIndex].Price);
+    // let sum = 0;
+    // const x = finalOrderArr.filter((price) => {
+    //   sum = sum + parseInt(price.Price.$numberDecimal);
+    //   return sum;
+    // });
     priceArr[0] = (finalSum - amtOff);
     setFinalSum(priceArr[0]);
   }
-
+  const addTip = () => { 
+  setTipsInput(!tipsinput) 
+  }
+  const confirmTip = (tipValue) => { 
+    setTips(priceArr[1]);
+    localStorage.setItem('dailyTips', priceArr[1]);
+    }
   const clearCustomization = () => {
     setInput('');
   }
@@ -168,6 +187,8 @@ function OrderPad() {
         </ol>
       </ol>
       <h5 className="subtotalWrap">Order Subtotal: ${finalSum.toFixed(2)}</h5>
+      <h5 className="subtotalWrap"><label className={tipsinput ? "tipwrap" : "hide"}><input className={tipsinput ? "tipinput" : "hide"} type='number' onChange={recordTip}></input><button onClick={confirmTip}>Check</button></label>Tip: ${tips}</h5>
+      <h5 className="subtotalWrap">Order Total: ${finalSum.toFixed(2)}</h5>
          <label className={customInput ? "customizationinput" : "hide"} ><input className="customizationinput"  value={input} onChange={recordChange}></input><button className="clearbtn" onClick={clearCustomization}>Clear</button></label>
       <span className="btnswrap">
       <button
@@ -179,6 +200,9 @@ function OrderPad() {
           className="deletebtn"
           onClick={(e) => deleteItem({ deleteIndex })}>
           Delete Item
+        </button>
+        <button className="submitbtn" onClick={addTip}>
+          Add Tip
         </button>
         <button className="submitbtn" onClick={submitOrder}>
           Submit Order

@@ -2,24 +2,22 @@
     display: flex;
     flex-direction: row-reverse;
     justify-content: flex-end;
-    padding: 0.25rem 0.5rem;
     height: 10vh;
     background-color: #E9EDEB;
     position: absolute;
-    bottom: 1.5rem;
+    bottom: 0;
     margin-top: 1vh;
     width: 100%;
+    margin: 1.5rem 0;
 }
 .utilitybtns{
-    width: 100%;
-    font-size: 1em;
-    margin: 2rem 0;
-    max-width: 9rem;
+    width: 25%;
+    font-size: .75em;
+    max-width:9rem;
     background-color: #0B3954;
     color: white;
-    margin: .5rem;
     height: 10vh;
-    border-radius: .5rem;
+    border-radius: 0.5rem;
     font-weight: 500;
 }
 .backarrowsvg{
@@ -31,6 +29,10 @@ html{
     overflow-x: hidden;
 }
 @media(min-width:768px){
+    .utilitybtns{
+        margin-left: .75rem;
+        font-size: 1em;
+    }
     .utilitybtns:hover{
         background-color: #136290;
         cursor: pointer;

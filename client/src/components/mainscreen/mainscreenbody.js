@@ -9,11 +9,9 @@ export function HomeScreenBody() {
   const [name, setName] = useState(localStorage.getItem("name"));
 
   const isLoggedIn = async () => {
-    console.log('AUTH')
     try {
       const call = await fetch("http://localhost:8000/confirmauth");
       const data = await call.json();
-      console.log(data)
       if (data.status != 'Authorized'){
         
       }
