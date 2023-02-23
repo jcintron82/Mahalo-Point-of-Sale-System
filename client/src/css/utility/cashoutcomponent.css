@@ -1,9 +1,33 @@
-.mainwrapbody{
+.cashoutscreenbody{
     display: flex;
-    justify-content: center;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
+}
+.employeedatasectionwrap{
+    width: 50%;
+    border: solid 1px black;
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+.employeedata{
+    border-bottom: solid 2px;
+    margin: .25rem;
+    padding-left: .5rem;
 }
 .cashoutbtn{
-    width: 5rem;
+    width: 20%;
+    margin-top: 5vh;
+    align-self: center;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: transparent;
+    color: white;
+    background-color: #283F53;
+    font-weight: 600;
+}
+@media (min-width: 1024px){
+    .cashoutbtn:hover{
+        cursor: pointer;
+    }
 }

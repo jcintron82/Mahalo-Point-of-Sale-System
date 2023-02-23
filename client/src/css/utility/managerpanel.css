@@ -1,0 +1,25 @@
+.manageractionsmainwrap{
+    display: flex;
+    align-items: center;
+}
+.managementactionswrap{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-right: 5%;
+    height: 100%;
+    width: 100%;
+}
+.compwrap{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.compinput{
+    width: 4.5vw;
+    height: 5vh;
+    margin: 0.25rem 0;
+    text-align: center;
+    padding: 0.25rem;
+}

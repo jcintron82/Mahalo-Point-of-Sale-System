@@ -1,28 +1,13 @@
-import { useNavigate } from "react-router-dom";
 import { OrderPad } from "../../utility/orderpad.js";
 import { UtilityBar } from "../../utility/utilitybar";
 import { customizationOptions } from "../../breakfast/eggbreakfasts";
 import "../../../css/mainscreen/homescreen-styles.css";
 
 export function BLT() {
-    const customizationsArr = [];
-
-  const addAddOns = (classification, selection) => {
-    // customizationsArr.push(selection)
-    addSelectedCustomization(classification, selection);
-  }  
   const addSelectedCustomization = (classification, selection) => {
     // customizationOptions.options = customizationsArr;
     customizationOptions.updateState(classification, selection);
   };
-
-  const navigate = useNavigate();
-
-  const onClick = (section) => {
-    let formattedArg = "/" + section;
-    navigate(formattedArg);
-  };
-
   return (
     <div className="body">
       <div className="mainwrap">
@@ -85,13 +70,13 @@ export function BLT() {
               Cheese
             </button>
             <button
-              onClick={(e) => addAddOns("AddIns", "LTO, ")}
+              onClick={(e) => addSelectedCustomization("AddIns", "LTO, ")}
               className="categorybtns"
             >
             LTO
             </button>
             <button
-              onClick={(e) => addAddOns("AddIns", "Bacon, ")}
+              onClick={(e) => addSelectedCustomization("AddIns", "Bacon, ")}
               className="categorybtns"
             >
             Bacon

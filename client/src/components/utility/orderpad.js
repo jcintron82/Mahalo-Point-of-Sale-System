@@ -1,12 +1,13 @@
 import { useState } from "react";
 import "../../css/orderpad.css";
 import { customizationOptions } from "../breakfast/eggbreakfasts";
-export { OrderPad, orderPadArr, orderFunc };
+export { OrderPad, orderPadArr, orderFunc, finalOrderArr};
 
 const orderPadArr = [];
 const orderFunc = {};
 const finalOrderArr = [];
 const priceArr = [0.0];
+const managementIndexTracker = 0;
 
 function OrderPad() {
   const [finalSum, setFinalSum] = useState(priceArr[0]);
@@ -95,15 +96,25 @@ function OrderPad() {
   //How we're transporting cuztomization data from other components without prop drilling.
   //A calling of this function can be found in any item cuztomization component
   customizationOptions.updateState = (classification, input) => {
-    if (finalOrderArr[deleteIndex][classification] != ''){
-      finalOrderArr[deleteIndex][classification] = finalOrderArr[deleteIndex][classification] + input
-
-    }
-    else {
-      finalOrderArr[deleteIndex][classification] = 'AddIns: ' + input;
-    }
+    finalOrderArr[deleteIndex][classification] = finalOrderArr[deleteIndex][classification] + input;
     setStately(!stately);
   };
+  customizationOptions.compItem = (action, compAmt) => {
+    const price = finalOrderArr[deleteIndex].Price.$numberDecimal;
+    const divide = (price / 100);
+    const amtOff = (divide * compAmt);
+    const final = price - amtOff
+    const prices = {};
+    if (action === true){
+      finalOrderArr[deleteIndex].Price.$numberDecimal = managementIndexTracker;
+      console.log(customizationOptions)
+    }
+    else {
+      finalOrderArr[deleteIndex].Price.$numberDecimal = final.toFixed(2);
+    }
+    priceArr[0] = (finalSum - amtOff);
+    setFinalSum(priceArr[0]);
+  }
 
   const clearCustomization = () => {
     setInput('');

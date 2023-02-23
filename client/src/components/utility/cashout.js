@@ -27,10 +27,16 @@ const updateServerMetrics = async () => {
 export function CashOutScreen() {
   const [lifetimeSales, setLifetimeSales] = useState(localStorage.getItem('lifetimeSales'));
   const [dailySales, setDailySales] = useState(localStorage.getItem('dailySales'));
+  const employeeName = localStorage.getItem('name')
   return (
-    <div className="mainwrapbody">
-        <h1>Today's Sales ${dailySales}</h1>
-        <h1>Lifetime Sales ${lifetimeSales}</h1>
+    <div className="cashoutscreenbody">
+      <section className="employeedatasectionwrap">
+        <h1 className="employeedata">Employee: {employeeName}</h1>
+        <h1 className="employeedata">Today's Sales ${dailySales}</h1>
+        <h1 className="employeedata">Today's Comped Value ${dailySales}</h1>
+        <h1 className="employeedata">Percentage of todays' sales comped: {dailySales}</h1>
+        <h1 className="employeedata">Lifetime Sales To Date ${lifetimeSales}</h1>
+        </section>
    <UtilityBar />
    <button onClick={updateServerMetrics} className="cashoutbtn">Cash Out</button>
    </div>
