@@ -2,14 +2,13 @@ import "../../css/utilitybar.css";
 import "../../css/utility/managerpanel.css";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { OrderPad } from "./orderpad";
+import { OrderPad, orders } from "./orderpad";
 import { UtilityBar } from "./utilitybar";
 import { finalOrderArr, managementPanelDeleteIndex } from "./orderpad";
 import { customizationOptions } from "../breakfast/eggbreakfasts";
 
 export function ManagerPanel() {
   const [compAmt, setCompAmt] = useState("");
-  const [restore, setRestore] = useState(false);
   const [loggedIn, setLoggedIn] = useState(false);
 
   const navigate = useNavigate();
@@ -26,9 +25,11 @@ export function ManagerPanel() {
   const compItem = () => {
     customizationOptions.compItem(false, compAmt);
   };
-  const restorePrice = () => {
-    customizationOptions.compItem(true);
-  };
+  const orderObject = Object.entries(orders)
+  console.log(orderObject)
+  orderObject.forEach((item) => {
+    return item
+  })
   return (
     <div className="manageractionsmainwrap">
       <div className={loggedIn ? "hide" : "modal"}></div>
@@ -45,11 +46,17 @@ export function ManagerPanel() {
             className="compinput"
             type="number"
             onChange={recordCompAmt}
-          ></input>
+          ></input>{orderObject.map((item, index) => {
+            <li
+              // onClick={(e) => {
+              //   setDeleteIndex(index);
+              // }}
+              // className={
+              //   deleteIndex === index ? "highlightselectedproduct" : "priceli"
+              // }
+              key={index}
+            >{item[1][0].Item + 'GGG'}gdgsgjhb{item[1][0].Item}</li>})}werfgefg
         </span>
-        <button onClick={restorePrice} className="utilitybtns">
-          Restore Item Price
-        </button>
         <button className="utilitybtns">Update Submitted Metrics</button>
        </div><UtilityBar /></div>
       
