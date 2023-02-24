@@ -148,7 +148,7 @@ h5{
     outline: none;
 }
 .dollarsvg{
-    width: 5rem;
+    width: 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -158,8 +158,16 @@ h5{
     border-bottom-left-radius: .5rem;
     height: 3.1rem;
 }
+.checkmarksvg{
+    fill: forestgreen;
+    height: 2.35rem;
+}
 .tipbtn{
+    display: flex;
     order: 4;
+    padding-right: 6%;
+    background: lightgray;
+    border: none;
 }
 .clearbtn{
     width: 40%;
@@ -191,6 +199,21 @@ h5{
     font-weight: bold;
     color: white;
     margin: 0.5rem;
+    font-weight: 500;
+    }
+    .customizebtn{
+        width: 7rem;
+        height: 7vh;
+        align-self: flex-start;
+        font-size: .7em;
+        border-radius: .5rem;
+        border: transparent;
+        background-color: #CB793A;
+        font-weight: bold;
+        color: white;
+        margin: 0.5rem;
+        font-weight: 500;
+
     }
 .submitbtn{
     width: 13rem;
@@ -200,6 +223,8 @@ h5{
     font-size: 1em;
     border-radius: .5rem;
     border: transparent;
+    background-color: lightgreen;
+    font-weight: 500;
 }
 .cuztomizationlabel{
     width: 100%;
@@ -233,7 +258,16 @@ h5{
     align-items: flex-start;
     justify-content: flex-end;
 }
+.checkmarksvg:active{
+    fill: lightblue;
+}
 @media(min-width: 768px){
+    .tipbtn:hover{
+        cursor: pointer;;
+    }
+    .checkmarksvg:hover{
+        stroke: lightgreen;
+    }
      .submitbtn:hover {
         background-color: lightgreen;
         cursor: pointer;
@@ -241,13 +275,16 @@ h5{
         font-size: .9em;
         font-weight: bold;
     }
-    .deletebtn:hover{
+    .deletebtn:hover, .customizebtn:hover{
         cursor: pointer;
-        opacity: .8;
-        font-size: .85em
+        font-weight: 600;
+        font-size: .8em;
     }
-    .submitbtn, .deletebtn {
+    .submitbtn {
         font-size: .9em;
+    }
+     .deletebtn {
+        font-size: .7em;
     }
     .priceli:hover, .highlightselectedproduct:hover{
         cursor: pointer;

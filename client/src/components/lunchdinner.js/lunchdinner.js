@@ -12,16 +12,13 @@ function LunchDinner() {
   const navigate = useNavigate();
 
   const queryProduct = async (input) => {
-//     queryArr.push(input);  const queryProduct = async (input) => {
     queryArr.push(input);
     try {
-      // Send data to the backend via POST
       const pull = await fetch("http://localhost:8000/customizedplates", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(queryArr),
       });
-    //   const data = await pull.json()
       orderFetch();
     queryArr.splice(0)
     } catch (err) {
@@ -35,7 +32,8 @@ function LunchDinner() {
       const data = await call.json();
       orderPadArr.push(data);
       orderFunc.newOrder();
-      customizationOptions.menuSelection = data;
+      console.log(data)
+      // customizationOptions.menuSelection = data;
       console.log(customizationOptions)
     } catch (err) {
       console.log(err);
@@ -47,7 +45,9 @@ function LunchDinner() {
     queryProduct(item);
     navigate(formattedArg);
   };
-
+ const toSandwiches = () => {
+  navigate('/sandwiches')
+ }
   return (
     <div className='body'>
     <div className="mainwrap">
@@ -55,7 +55,7 @@ function LunchDinner() {
       <div className="categorybtnswrap">
             <button onClick={(e) => onClick('classicplate', 'Classic Plate')} className="categorybtns">Classic Plate
             </button>
-            <button onClick={(e) => onClick('sandwiches')} className="categorybtns">Sandwiches
+            <button onClick={(e) => toSandwiches()} className="categorybtns">Sandwiches
             </button>
             </div>
     </div>
