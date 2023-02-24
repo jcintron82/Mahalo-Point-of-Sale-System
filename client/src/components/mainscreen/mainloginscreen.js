@@ -42,7 +42,7 @@ const employeeMetrics = {
         localStorage.setItem("employeeID", data.employeeID);
         orderNum ? localStorage.setItem("orderNum", orderNum + 1) : localStorage.setItem("orderNum", 1);;
         navigate(data.code);
-        orderFunc.trackOrderNum();
+        // orderFunc.trackOrderNum();
         }
 }
 

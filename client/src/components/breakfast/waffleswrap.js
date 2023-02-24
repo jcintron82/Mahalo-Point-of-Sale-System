@@ -44,8 +44,8 @@ export const WafflesScreen = () => {
               queryProduct("Plain Waffle");
             }}
             className="categorybtns"
-          >
-            Plain Waffle
+          ><span className='btnimgwrap'><img className='btnimg' src={require('../../images/breakfast/plainwaffle.jpg')}></img></span>
+            <h1 className='btnh1'>Plain Waffle</h1>
           </button>
           <button
             type="submit"
@@ -53,8 +53,8 @@ export const WafflesScreen = () => {
               queryProduct("Blueberry Waffle");
             }}
             className="categorybtns"
-          >
-            Blueberry Waffle
+          ><span className='btnimgwrap'><img className='btnimg' src={require('../../images/breakfast/blueberrywaffle.jpg')}></img></span>
+          <h1 className='btnh1'>Blueberry Waffle</h1>
           </button>
           <button
             type="submit"
@@ -62,8 +62,8 @@ export const WafflesScreen = () => {
               queryProduct("Chocolate Chip Waffle");
             }}
             className="categorybtns"
-          >
-            Chocolate Chip Waffle
+          ><span className='btnimgwrap'><img className='btnimg' src={require('../../images/breakfast/chocolatechipwaffle.jpg')}></img></span>
+          <h1 className='btnh1'>Chocolate Chip Waffle</h1>
           </button>
         </div>
       </div>

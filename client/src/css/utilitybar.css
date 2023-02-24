@@ -28,6 +28,11 @@
 html{
     overflow-x: hidden;
 }
+
+.btnimgwrap{
+    width: 50%;
+    height: 100%;
+}
 @media(min-width:768px){
     .utilitybtns{
         margin-left: .75rem;

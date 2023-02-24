@@ -18,9 +18,9 @@ export function BreakfastMain() {
     <div className="mainwrap">
       <OrderPad />
       <div className="categorybtnswrap">
-            <button onClick={(e) => onClick('waffles')} className="categorybtns">Waffles
+            <button onClick={(e) => onClick('waffles')} className="categorybtns"><span className='btnimgwrap'><img className='btnimg' src={require('../../images/wafflemain.avif')}></img></span><h1 className='btnh1'>Waffles</h1>
             </button>
-            <button onClick={(e) => onClick('eggbreakfasts')} className="categorybtns">Egg Breakfasts
+            <button onClick={(e) => onClick('eggbreakfasts')} className="categorybtns"><span className='btnimgwrap'><img className='btnimg' src={require('../../images/eggbreakfast.jpg')}></img></span><h1 className='btnh1'>Egg Breakfasts</h1>
             </button>
             </div>
     </div>
