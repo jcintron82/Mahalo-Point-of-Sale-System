@@ -67,7 +67,7 @@ export const WafflesScreen = () => {
           </button>
         </div>
       </div>
-      <UtilityBar />
+      {/* <UtilityBar /> */}
     </div>
   );
 };

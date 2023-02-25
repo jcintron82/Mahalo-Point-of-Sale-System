@@ -59,7 +59,6 @@ function LunchDinner() {
             </button>
             </div>
     </div>
-      <UtilityBar />
   </div>
   );
 }

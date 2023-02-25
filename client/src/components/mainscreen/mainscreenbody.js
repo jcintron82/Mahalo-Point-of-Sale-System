@@ -31,18 +31,18 @@ export function HomeScreenBody() {
   
   return (
   <div className='body'>
-    <h1 className='welcomemsg'>Welcome Back {name}</h1>
     <div className="mainwrap">
       <OrderPad />
       <div className="categorybtnswrap">
+            <h1 className='welcomemsg'>Welcome Back {name}</h1>
         <button onClick={(e) => onClick("breakfast")} className="categorybtns"><span className='btnimgwrap'><img className='btnimg' src={require('../../images/breakfast/breakfastmain.jpg')}></img></span>
             <h1  className='btnh1'>Breakfast</h1></button>
         <button onClick={(e) => onClick("lunchdinner")}className="categorybtns"><span className='btnimgwrap'><img className='btnimg' src={require('../../images/lunchdinner/texasmelt.jpg')}></img></span>
             <h1  className='btnh1'>Lunch/Dinner</h1></button>
-        <button className="categorybtns">Kids Menu</button>
+        {/* <button className="categorybtns">Kids Menu</button> */}
       </div>
     </div>
-      <UtilityBar />
+      {/* <UtilityBar /> */}
   </div>
   );
 }

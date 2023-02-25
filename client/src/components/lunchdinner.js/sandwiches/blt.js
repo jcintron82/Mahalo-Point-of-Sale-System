@@ -96,7 +96,6 @@ export function BLT() {
           </ul>
         </div>
       </div>
-      <UtilityBar />
     </div>
   );
 }

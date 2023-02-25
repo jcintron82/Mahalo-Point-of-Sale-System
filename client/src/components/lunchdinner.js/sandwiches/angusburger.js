@@ -93,7 +93,6 @@ export function AngusBurger() {
           </ul>
         </div>
       </div>
-      <UtilityBar />
     </div>
   );
 }

@@ -63,7 +63,6 @@ function SandwichesWrap() {
             </button>
             </div>
     </div>
-      <UtilityBar />
   </div>
   );
 }

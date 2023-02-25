@@ -1,9 +1,9 @@
 .utilitywrap{
     display: flex;
     flex-direction: row-reverse;
-    justify-content: flex-end;
+    justify-content: space-around;
     height: 10vh;
-    background-color: #E9EDEB;
+    background-color: lightgray;
     position: relative;
     bottom: 0;
     margin-top: 1vh;
@@ -11,14 +11,15 @@
     margin: 1.5rem 0;
 }
 .utilitybtns{
-    width: 85%;
+    width: 100%;
     font-size: .75em;
-    max-width:9rem;
+    max-width: 9rem;
     background-color: #0B3954;
     color: white;
     height: 10vh;
     border-radius: 0.5rem;
     font-weight: 500;
+    margin: 0 0.25rem;
 }
 .backarrowsvg{
     display: inline;
@@ -34,10 +35,10 @@ html{
     height: 100%;
 }
 .managerloginwrap{
-    width:5rem;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    margin-left: 2rem;
 }
 @media(min-width:768px){
     .utilitybtns{

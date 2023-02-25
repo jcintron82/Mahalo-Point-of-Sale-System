@@ -82,7 +82,6 @@ export function TexasMelt() {
           </ul>
         </div>
       </div>
-      <UtilityBar />
     </div>
   );
 }

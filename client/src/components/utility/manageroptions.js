@@ -59,7 +59,7 @@ export function ManagerPanel() {
             >{item[1][0].Item + 'GGG'}gdgsgjhb{item[1][0].Item}</li>})}
         </span>
         <button className="utilitybtns">Update Submitted Metrics</button>
-       </div><UtilityBar /></div>
+       </div></div>
       
   );
 }

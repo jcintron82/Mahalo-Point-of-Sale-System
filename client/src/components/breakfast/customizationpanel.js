@@ -50,9 +50,44 @@ export function CustomizationPanel() {
             <button onClick={(e) => addSelectedCustomization('Side', 'Side: Hashbrowns')} className="categorybtns">Hashbrowns</button>
           <button onClick={(e) => addSelectedCustomization('Side', 'Side: Grits')} className="categorybtns">Grits</button>
         </ul>
+        <h6>Add Ons</h6>
+          <ul className="buttonswrap">
+            <button
+              onClick={(e) =>
+                addSelectedCustomization("AddIns", "Cheese, ")
+              }
+              className="categorybtns"
+            >
+              Cheese
+            </button>
+            <button
+              onClick={(e) => addSelectedCustomization("AddIns", "LTO, ")}
+              className="categorybtns"
+            >
+            LTO
+            </button>
+            <button
+              onClick={(e) => addSelectedCustomization("AddIns", "Bacon, ")}
+              className="categorybtns"
+            >
+            Bacon
+            </button>
+            <button
+              onClick={(e) => addSelectedCustomization("AddIns", "Peppers, ")}
+              className="categorybtns"
+            >
+            Peppers
+            </button>
+            <button
+              onClick={(e) => addSelectedCustomization("AddIns", "Mushrooms, ")}
+              className="categorybtns"
+            >
+            Mushrooms
+            </button>
+          </ul>
             </div>
     </div>
-      <UtilityBar />
+      {/* <UtilityBar /> */}
   </div>
   );
 }

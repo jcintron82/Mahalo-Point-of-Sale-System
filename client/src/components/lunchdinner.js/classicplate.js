@@ -86,7 +86,7 @@ export function ClassicPlate() {
           </ul>
             </div>
     </div>
-      <UtilityBar />
+      {/* <UtilityBar /> */}
   </div>
   );
 }

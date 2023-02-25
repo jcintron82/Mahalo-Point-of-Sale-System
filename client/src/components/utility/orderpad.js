@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "../../css/orderpad.css";
 import { customizationOptions } from "../breakfast/eggbreakfasts";
+import UtilityBar from "./utilitybar";
 export { OrderPad, orderPadArr, orderFunc, finalOrderArr, orders };
 
 const orderPadArr = [];
@@ -21,17 +22,17 @@ function OrderPad() {
   const [stately, setStately] = useState(false);
   const [input, setInput] = useState("");
   const [customInput, setCustomInput] = useState(false);
-  
+  const [waffleIndex, setWaffleIndex] = useState(false);
   orderFunc.newOrder = () => {
     const PRODUCT = orderPadArr[0].message[0];
     finalOrderArr.push(PRODUCT);
     orderPadArr.splice(0);
     totalFinalSum(PRODUCT.Price.$numberDecimal);
     //Code I will eventually factor for the waffles and to prevent non applicapable addins to display
-    // PRODUCT.category === "Waffles"
-    //   ? setWaffleIndex(true)
-    //   : setWaffleIndex(null);
-    // console.log(PRODUCT.category);
+    PRODUCT.category === "Waffles"
+      ? setWaffleIndex(true)
+      : setWaffleIndex(null);
+    console.log(PRODUCT.category);
     setDeleteIndex(-1);
     const sum = parseInt(priceArr[0]) + parseInt(PRODUCT.Price.$numberDecimal);
     priceArr.length > 0
@@ -78,6 +79,14 @@ function OrderPad() {
       //and reports
       const trackedOrder = finalOrderArr.splice(0);
       orders["order" + order] = trackedOrder;
+      orders["order" + order].totals= {
+        orderNum: orderNum,
+        ordersubTotal:finalSum,
+        orderTip:tips,
+        orderTotal: postTip,
+        paymentType:'Cash'
+      }
+      console.log(orders)
       updateDailySales();
       setFinalSum(0.0);
       priceArr[0] = 0.0;
@@ -162,7 +171,7 @@ function OrderPad() {
   return (
     <div className="orderpadwrap">
       <ol className="orderpad-ols-wrap">
-        Order # {num}
+        <h1 className="ordernum">Order # {num}</h1>
         <ol className="orderpad-items-wrap">
           {finalOrderArr.map((item, index) => (
             <li
@@ -178,7 +187,6 @@ function OrderPad() {
               <div className="itemwrap">
                 <h1 className="itemnamewrap">{item.Item}</h1>
                 <ul className="customizationslist">
-                  {/* {waffleIndex === true ? <div>THESE ARE WAFFLES</div> :  */}
                   <li>
                     {item.Eggs}
                     <br></br>
@@ -199,7 +207,7 @@ function OrderPad() {
                   
                 </ul>
                 <h3 className="lipricewrap"><div className="addinswrap">
-                   {'Add | ' + item.AddIns}
+                 {item.category === 'Waffles'  ? <div></div> : <div>Add | {item.AddIns}</div>}
                     <br></br>
                   </div>${item.Price.$numberDecimal}</h3>
                 <h6 className="customrequestwrap">
@@ -254,13 +262,14 @@ function OrderPad() {
         >
           Item Customization Request
         </button>
-        <button className="submitbtn" onClick={addTip}>
+        <button className="addtipbtn" onClick={addTip}>
           Add Tip
         </button>
         <button className="submitbtn" onClick={() => submitOrder(num)}>
           Submit Order
         </button>
       </span>
+      <UtilityBar />
     </div>
   );
 }

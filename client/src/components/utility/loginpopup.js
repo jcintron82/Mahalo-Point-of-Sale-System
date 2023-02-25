@@ -29,10 +29,11 @@ export function LoginPopup() {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(credentials),
         });
+        receiveSuccessfulLogin()
       } catch (err) {
         console.log(err + 'ERROR');
       }
-      receiveSuccessfulLogin(e)
+ 
 };
   const onClick = (section) => {
     let formattedArg = "/" + section;

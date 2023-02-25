@@ -24,7 +24,7 @@ export function BreakfastMain() {
             </button>
             </div>
     </div>
-      <UtilityBar />
+      {/* <UtilityBar /> */}
   </div>
   );
 }

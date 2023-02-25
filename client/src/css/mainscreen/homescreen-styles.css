@@ -2,7 +2,7 @@
     display: flex;
     flex-flow: column nowrap;
     background-color: #E9EDEB;
-    height: 100vh;
+    height: 100%;
 }
 .mainwrap{
     background-color: #E9EDEB;
@@ -15,12 +15,9 @@
     align-self: center;
 }
 .welcomemsg{
-    position: static;
-    margin-bottom: 0.25rem;
-    align-self: center;
-    position: fixed;
-    left: 50%;
-
+    margin-bottom: 2rem;
+    width: 100%;
+    text-align: center;
 }
 
 .categorybtnswrap{
@@ -36,10 +33,10 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 17vh;
+    height: 10vh;
     max-height: 10rem;
     font-size: 1em;
-    margin: 2rem 0;
+    margin: .3rem;
     max-width: 22rem;
     background-color: #0B3954;
     color: white;
@@ -67,7 +64,6 @@
 }
 h6{
     width: 100%;
-    text-indent: 5vw;
     font-size: 1em;
     margin: 0;
 }

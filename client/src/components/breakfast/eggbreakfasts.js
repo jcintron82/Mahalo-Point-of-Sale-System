@@ -52,11 +52,12 @@ function EggBreakfasts() {
     <div className="mainwrap">
       <OrderPad />
       <div className="categorybtnswrap">
-            <button onClick={(e) => onClick('All Star')} className="categorybtns">All Star Special
+            <button onClick={(e) => onClick('All Star')} className="categorybtns"><span className='btnimgwrap'><img className='btnimg' src={require('../../images/breakfast/allstar.jpg')}></img></span>
+          <h1 className='btnh1'>All Star Special</h1>
             </button>
             </div>
     </div>
-      <UtilityBar />
+      {/* <UtilityBar /> */}
   </div>
   );
 }

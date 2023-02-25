@@ -7,7 +7,7 @@
 .managementactionswrap{
     display: flex;
     flex-flow: row nowrap;
-    justify-content: space-evenly;
+    justify-content: center;
     flex-wrap: wrap;
     margin-right: 5%;
     height: 100%;
