@@ -9,7 +9,6 @@ export function LoginPopup() {
 
   const receiveSuccessfulLogin = async (e) => {
     e.preventDefault();
-    console.log('????')
     const call = await fetch("http://localhost:8000/popup");
         const data = await call.json();
         console.log(data);
@@ -22,9 +21,7 @@ export function LoginPopup() {
         }
 
   const login = async (e) => {
-    console.log('????')
     e.preventDefault();
-    console.log('????')
     try {
         // Send data to the backend via POST
         const push = await fetch("http://localhost:8000/popup", {
@@ -32,13 +29,10 @@ export function LoginPopup() {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(credentials),
         });
-        console.log(push);
-        console.log(credentials)
       } catch (err) {
         console.log(err + 'ERROR');
       }
-      console.log('????')
-      receiveSuccessfulLogin()
+      receiveSuccessfulLogin(e)
 };
   const onClick = (section) => {
     let formattedArg = "/" + section;
@@ -47,8 +41,8 @@ export function LoginPopup() {
   };
   
   return (
-    <form >
-      <label>Login Modal
+    <form className="managerloginwrap">
+      <label> Manager ID 
         <input onChange={(e) => setUsername(e.target.value)}></input>
       </label>
       <button onClick={login}>Log-In</button><button onClick={receiveSuccessfulLogin}>Cancel</button>

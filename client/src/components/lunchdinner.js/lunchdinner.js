@@ -32,9 +32,7 @@ function LunchDinner() {
       const data = await call.json();
       orderPadArr.push(data);
       orderFunc.newOrder();
-      console.log(data)
-      // customizationOptions.menuSelection = data;
-      console.log(customizationOptions)
+      customizationOptions.menuSelection = data;
     } catch (err) {
       console.log(err);
     }
@@ -53,9 +51,11 @@ function LunchDinner() {
     <div className="mainwrap">
       <OrderPad />
       <div className="categorybtnswrap">
-            <button onClick={(e) => onClick('classicplate', 'Classic Plate')} className="categorybtns">Classic Plate
+            <button onClick={(e) => onClick('classicplate', 'Classic Plate')} className="categorybtns"><span className='btnimgwrap'><img className='btnimg' src={require('../../images/lunchdinner/classicplate.jpg')}></img></span>
+            <h1  className='btnh1'>Classic Plate</h1>
             </button>
-            <button onClick={(e) => toSandwiches()} className="categorybtns">Sandwiches
+            <button onClick={(e) => toSandwiches()} className="categorybtns"><span className='btnimgwrap'><img className='btnimg' src={require('../../images/lunchdinner/sandwichesmain.jfif')}></img></span>
+            <h1  className='btnh1'>Sandwiches</h1>
             </button>
             </div>
     </div>

@@ -12,18 +12,15 @@ function SandwichesWrap() {
   const navigate = useNavigate();
 
   const queryProduct = async (input) => {
-//     queryArr.push(input);  const queryProduct = async (input) => {
     queryArr.push(input);
     try {
-      // Send data to the backend via POST
       const pull = await fetch("http://localhost:8000/customizedplates", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(queryArr),
       });
-    //   const data = await pull.json()
       orderFetch();
-    queryArr.splice(0)
+    queryArr.splice(0);
     } catch (err) {
       console.log(err);
     }
@@ -36,7 +33,6 @@ function SandwichesWrap() {
       orderPadArr.push(data);
       orderFunc.newOrder();
       customizationOptions.menuSelection = data;
-      console.log(customizationOptions)
     } catch (err) {
       console.log(err);
     }
@@ -53,11 +49,17 @@ function SandwichesWrap() {
     <div className="mainwrap">
       <OrderPad />
       <div className="categorybtnswrap">
-            <button onClick={(e) => onClick('blt', 'BLT')} className="categorybtns">BLT
+            <button onClick={(e) => onClick('blt', 'BLT')} className="categorybtns">
+            <span className='btnimgwrap'><img className='btnimg' src={require('../../../images/lunchdinner/blt.jpg')}></img></span>
+            <h1 className='btnh1'>BLT</h1>
             </button>
-            <button onClick={(e) => onClick('texas', 'Texas Melt')} className="categorybtns">Texas Melt
+            <button onClick={(e) => onClick('texas', 'Texas Melt')} className="categorybtns">
+            <span className='btnimgwrap'><img className='btnimg' src={require('../../../images/lunchdinner/texasmelt.jpg')}></img></span>
+            <h1 className='btnh1'>Texas Melt</h1>
             </button>
-            <button onClick={(e) => onClick('angusburger', '1/4lb Angus Burger')} className="categorybtns">1/4lb Angus Burger
+            <button onClick={(e) => onClick('angusburger', '1/4lb Angus Burger')} className="categorybtns">
+            <span className='btnimgwrap'><img className='btnimg' src={require('../../../images/lunchdinner/burger.jpg')}></img></span>
+            <h1  className='btnh1'>1/4lb Angus Burger</h1>
             </button>
             </div>
     </div>

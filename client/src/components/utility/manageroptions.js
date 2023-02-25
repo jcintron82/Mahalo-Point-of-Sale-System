@@ -35,18 +35,19 @@ export function ManagerPanel() {
       <div className={loggedIn ? "hide" : "modal"}></div>
       <OrderPad />
       <div className="managementactionswrap">
-        <span>
+        <span className="compwrap">
           <button onClick={compItem} className="utilitybtns">
             Discount Order Item
           </button>
-          <input
+          <label className="percentsvgwrap"><input
             min={1}
             maxLength={3}
-            placeholder="50%"
+            placeholder='50'
             className="compinput"
             type="number"
             onChange={recordCompAmt}
-          ></input>{orderObject.map((item, index) => {
+          ></input></label>
+          {orderObject.map((item, index) => {
             <li
               // onClick={(e) => {
               //   setDeleteIndex(index);
@@ -55,7 +56,7 @@ export function ManagerPanel() {
               //   deleteIndex === index ? "highlightselectedproduct" : "priceli"
               // }
               key={index}
-            >{item[1][0].Item + 'GGG'}gdgsgjhb{item[1][0].Item}</li>})}werfgefg
+            >{item[1][0].Item + 'GGG'}gdgsgjhb{item[1][0].Item}</li>})}
         </span>
         <button className="utilitybtns">Update Submitted Metrics</button>
        </div><UtilityBar /></div>

@@ -21,7 +21,7 @@ function OrderPad() {
   const [stately, setStately] = useState(false);
   const [input, setInput] = useState("");
   const [customInput, setCustomInput] = useState(false);
-
+  
   orderFunc.newOrder = () => {
     const PRODUCT = orderPadArr[0].message[0];
     finalOrderArr.push(PRODUCT);
@@ -121,10 +121,10 @@ function OrderPad() {
   //How we're transporting cuztomization data from other components without prop drilling.
   //A calling of this function can be found in any item cuztomization component
   customizationOptions.updateState = (classification, input) => {
-    finalOrderArr[deleteIndex][classification] =
-      finalOrderArr[deleteIndex][classification] + input;
+    finalOrderArr[deleteIndex][classification] = finalOrderArr[deleteIndex][classification] + input;
     setStately(!stately);
   };
+
   customizationOptions.compItem = (action, compAmt) => {
     const price = finalOrderArr[deleteIndex].Price.$numberDecimal;
     const divide = price / 100;
@@ -196,12 +196,12 @@ function OrderPad() {
                     {item.Side}
                     <br></br>
                   </li>
-                  <li>
-                    {item.AddIns}
-                    <br></br>
-                  </li>
+                  
                 </ul>
-                <h3 className="lipricewrap">${item.Price.$numberDecimal}</h3>
+                <h3 className="lipricewrap"><div className="addinswrap">
+                   {'Add | ' + item.AddIns}
+                    <br></br>
+                  </div>${item.Price.$numberDecimal}</h3>
                 <h6 className="customrequestwrap">
                   Special<br></br> Instructions: {item.customRequest}
                 </h6>
@@ -210,6 +210,16 @@ function OrderPad() {
           ))}
         </ol>
       </ol>
+      <label className={customInput ? "customizationinput" : "hide"}>
+        <input
+          className="customizationinput"
+          value={input}
+          onChange={recordChange}
+        ></input>
+        <button className="clearbtn" onClick={clearCustomization}>
+          Clear
+        </button>
+      </label>
       <h5 className="subtotalWrap">Order Subtotal: ${finalSum.toFixed(2)}</h5>
       <h5 className="subtotalWrap">
         <label className={tipsinput ? "tipwrap" : "hide"}>
@@ -225,22 +235,12 @@ function OrderPad() {
             onChange={recordTip}
           ></input>
           <button className="tipbtn" onClick={confirmTip}>
-          <svg className="checkmarksvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>confirm-tip</title><path d="M12 2C6.5 2 2 6.5 2 12S6.5 22 12 22 22 17.5 22 12 17.5 2 12 2M12 20C7.59 20 4 16.41 4 12S7.59 4 12 4 20 7.59 20 12 16.41 20 12 20M16.59 7.58L10 14.17L7.41 11.59L6 13L10 17L18 9L16.59 7.58Z" /></svg>
+          <svg  className="checkmarksvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>confirm-tip</title><path  className="checkmarksvg" stroke="000000" stroke-width='4' d="M12 2C6.5 2 2 6.5 2 12S6.5 22 12 22 22 17.5 22 12 17.5 2 12 2M12 20C7.59 20 4 16.41 4 12S7.59 4 12 4 20 7.59 20 12 16.41 20 12 20M16.59 7.58L10 14.17L7.41 11.59L6 13L10 17L18 9L16.59 7.58Z" /></svg>
           </button>
         </label>
         Tip: ${tips}
       </h5>
       <h5 className="subtotalWrap">Order Total: ${postTip.toFixed(2)}</h5>
-      <label className={customInput ? "customizationinput" : "hide"}>
-        <input
-          className="customizationinput"
-          value={input}
-          onChange={recordChange}
-        ></input>
-        <button className="clearbtn" onClick={clearCustomization}>
-          Clear
-        </button>
-      </label>
       <span className="btnswrap">
       <button
           className="deletebtn"

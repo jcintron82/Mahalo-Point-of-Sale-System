@@ -1,11 +1,13 @@
 .manageractionsmainwrap{
     display: flex;
     align-items: center;
+    flex-direction: column;
+    height: 100vh;
 }
 .managementactionswrap{
     display: flex;
     flex-flow: row nowrap;
-    justify-content: center;
+    justify-content: space-evenly;
     flex-wrap: wrap;
     margin-right: 5%;
     height: 100%;
@@ -17,9 +19,21 @@
     align-items: center;
 }
 .compinput{
-    width: 4.5vw;
+    width: 50%;
     height: 5vh;
     margin: 0.25rem 0;
     text-align: center;
     padding: 0.25rem;
+}
+.percentsvgwrap{
+    display: flex;
+    justify-content: center;
+}
+.percentsvg{
+    fill:red
+}
+@media(min-width:768px) {
+    .manageractionsmainwrap{
+        flex-direction: column;
+    }
 }

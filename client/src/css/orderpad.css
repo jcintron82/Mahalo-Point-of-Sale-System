@@ -1,11 +1,11 @@
 .orderpadwrap{
     display: flex;
     flex-flow: column nowrap;
-    align-items: flex-start;
+    align-items: center;
     border: solid black 2px;
     width: 95%;
     height: 80vh;
-    max-width: 25rem;
+    max-width: 22rem;
     margin: 0.3rem;
     background-color: lightgray;
     align-self: flex-start;
@@ -15,11 +15,12 @@
     display: flex;
     flex-direction: column;
     width: 99%;
-    max-height: 54vh;
+    max-height: 38vh;
     padding-left: 0;
     overflow-y: scroll;
     overflow-x: hidden;
 }
+
 ::-webkit-scrollbar {
     -webkit-appearance: none;
     width: 7px;
@@ -76,9 +77,11 @@ li{
 }
 .customizationslist{
     display: flex;
-    font-size: .8em;
-    padding-left: 0;
+    font-size: 1em;
     flex-wrap: wrap;
+    justify-content: flex-start;
+    font-weight: 400;
+    padding-left: 0;
 
 }
 .itemwrap{
@@ -94,18 +97,22 @@ li{
     text-align: center;
 }
 .lipricewrap{
-    font-weight: bold;
-    padding-right: 1rem;
+        padding-right: 1rem;
     text-align: right;
     margin: 0;
+    display: flex;
+    font-weight: 400;
+    justify-content: space-between;
 }
 .highlightselectedproduct{
     border: dotted red 4px;
     align-self: flex-start;
     width: 99%;
     background: lightcyan;
-    padding: 0.5rem 0;
     margin: 0;
+}
+.subtotalmainwrap{
+    width: 5rem;
 }
 .subtotalWrap{
     display: flex;
@@ -162,6 +169,17 @@ h5{
     fill: forestgreen;
     height: 2.35rem;
 }
+@keyframes dash {
+    to {
+      stroke-dashoffset: 1000;
+    }
+  }
+/* .checkmarksvg:active{
+    fill: black;
+    stroke: black;
+    stroke-dasharray: 65;
+    animation: dash 25s linear;
+} */
 .tipbtn{
     display: flex;
     order: 4;
@@ -187,6 +205,7 @@ h5{
     align-self: center;
     align-items: center;
     padding-bottom: .25rem;
+    margin-top: .5rem;
 }
 .deletebtn{
     width: 7rem;
@@ -243,9 +262,9 @@ h5{
     display: none;
 }
 .addinswrap{
-    border: solid 2px;
-    position: relative;
-    top: 18.5%;
+    padding-left: 0.5rem;
+    font-size: .8em;
+    text-align: left;
 }
 .customizationinput{
     font-size: 1em;
@@ -258,9 +277,7 @@ h5{
     align-items: flex-start;
     justify-content: flex-end;
 }
-.checkmarksvg:active{
-    fill: lightblue;
-}
+
 @media(min-width: 768px){
     .tipbtn:hover{
         cursor: pointer;;

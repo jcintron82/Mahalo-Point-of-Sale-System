@@ -28,15 +28,17 @@ export function HomeScreenBody() {
     let formattedArg = "/" + section;
     navigate(formattedArg);
   };
-
+  
   return (
   <div className='body'>
     <h1 className='welcomemsg'>Welcome Back {name}</h1>
     <div className="mainwrap">
       <OrderPad />
       <div className="categorybtnswrap">
-        <button onClick={(e) => onClick("breakfast")} className="categorybtns">Breakfast</button>
-        <button onClick={(e) => onClick("lunchdinner")}className="categorybtns">Lunch/Dinner</button>
+        <button onClick={(e) => onClick("breakfast")} className="categorybtns"><span className='btnimgwrap'><img className='btnimg' src={require('../../images/breakfast/breakfastmain.jpg')}></img></span>
+            <h1  className='btnh1'>Breakfast</h1></button>
+        <button onClick={(e) => onClick("lunchdinner")}className="categorybtns"><span className='btnimgwrap'><img className='btnimg' src={require('../../images/lunchdinner/texasmelt.jpg')}></img></span>
+            <h1  className='btnh1'>Lunch/Dinner</h1></button>
         <button className="categorybtns">Kids Menu</button>
       </div>
     </div>

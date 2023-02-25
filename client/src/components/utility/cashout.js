@@ -41,8 +41,8 @@ export function CashOutScreen() {
         <h1 className="employeedata">Percentage of todays' sales comped: {dailySales}</h1>
         <h1 className="employeedata">Lifetime Sales To Date ${lifetimeSales}</h1>
         </section>
+        <button onClick={updateServerMetrics} className="cashoutbtn">Cash Out</button>
    <UtilityBar />
-   <button onClick={updateServerMetrics} className="cashoutbtn">Cash Out</button>
    </div>
    
   );
