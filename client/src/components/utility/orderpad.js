@@ -218,16 +218,6 @@ function OrderPad() {
           ))}
         </ol>
       </ol>
-      <label className={customInput ? "customizationinput" : "hide"}>
-        <input
-          className="customizationinput"
-          value={input}
-          onChange={recordChange}
-        ></input>
-        <button className="clearbtn" onClick={clearCustomization}>
-          Clear
-        </button>
-      </label>
       <h5 className="subtotalWrap">Order Subtotal: ${finalSum.toFixed(2)}</h5>
       <h5 className="subtotalWrap">
         <label className={tipsinput ? "tipwrap" : "hide"}>
@@ -265,9 +255,18 @@ function OrderPad() {
         <button className="addtipbtn" onClick={addTip}>
           Add Tip
         </button>
-        <button className="submitbtn" onClick={() => submitOrder(num)}>
-          Submit Order
+        {customInput ? <label className={customInput ? "customizationinput" : "hide"}>
+        <input
+          className="customizationinput"
+          value={input}
+          onChange={recordChange}
+        ></input>
+        <button className="clearbtn" onClick={clearCustomization}>
+          Clear
         </button>
+      </label> :<button className="submitbtn" onClick={() => submitOrder(num)}>
+          Submit Order
+        </button>}
       </span>
       <UtilityBar />
     </div>

@@ -41,8 +41,10 @@ export function CashOutScreen() {
         <h1 className="employeedata">Percentage of todays' sales comped: {dailySales}</h1>
         <h1 className="employeedata">Lifetime Sales To Date ${lifetimeSales}</h1>
         </section>
+        <section className="cashoutbtnswrap">
+        <button onClick={(e) => navigate(-1)} className="utilitybtns"><svg className="backarrowsvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>arrow-left-bold</title><path d="M20,9V15H12V19.84L4.16,12L12,4.16V9H20Z" /></svg></button>
         <button onClick={updateServerMetrics} className="cashoutbtn">Cash Out</button>
-   <UtilityBar />
+        </section>
    </div>
    
   );

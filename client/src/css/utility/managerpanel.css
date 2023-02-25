@@ -12,11 +12,13 @@
     margin-right: 5%;
     height: 100%;
     width: 100%;
+    align-items: center;
 }
 .compwrap{
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 10rem;
 }
 .compinput{
     width: 50%;
@@ -34,6 +36,6 @@
 }
 @media(min-width:768px) {
     .manageractionsmainwrap{
-        flex-direction: column;
+        flex-direction: row;
     }
 }

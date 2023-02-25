@@ -1,22 +1,23 @@
 .orderpadwrap{
     display: flex;
     flex-flow: column nowrap;
+    justify-content: space-between;
     align-items: center;
     border: solid black 2px;
     width: 95%;
-    height: 95vh;
+    min-height: 95vh;
     max-width: 28rem;
     margin: 0.3rem;
     background-color: lightgray;
-    align-self: flex-start;
-    margin-top: 2rem;
+    align-self: center;
+    margin-top: 1rem;
     border-radius: .5rem;
     border: none;
 }
 .orderpad-items-wrap{
     display: flex;
     flex-direction: column;
-    width: 99%;
+    width: 95%;
     max-height: 38vh;
     padding-left: 0;
     overflow-y: scroll;
@@ -44,6 +45,7 @@ li:focus{
     width: 100%;
     height: 100%;
     flex-direction: column;
+    max-height: 38vh;
 }
 ol{
     width: 1rem;
@@ -57,6 +59,7 @@ ol{
     align-self: flex-start;
     align-items: center;
     width: 99%;
+    font-size: .925em;
 
 }
 .itemnamewrap{
@@ -107,11 +110,21 @@ li{
     justify-content: space-between;
 }
 .highlightselectedproduct{
-    border: dotted red 4px;
-    align-self: flex-start;
-    width: 99%;
-    background: lightcyan;
-    margin: 0;
+    height: 100%;
+    width: 92.5%;
+    align-self: center;
+    background: linear-gradient(90deg, black 50%, transparent 50%), 
+                linear-gradient(90deg, black 50%, transparent 50%), 
+                linear-gradient(0deg, black 50%, transparent 50%), 
+                linear-gradient(0deg, black 50%, transparent 50%);
+    background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+    background-size: 16px 4px, 16px 4px, 4px 16px, 4px 16px;
+    background-position: 0% 0%, 100% 100%, 0% 100%, 100% 0px;
+    border-radius: 5px;
+    padding: 10px;
+    animation: dash 25s linear infinite;
+    font-size: .925em;
+    background-color: #EBEBEB;
 }
 .subtotalmainwrap{
     width: 5rem;
@@ -191,17 +204,19 @@ h5{
 }
 .clearbtn{
     width: 40%;
+    height: 4.5vh;
     align-self: center;
     margin-top: 0.5rem;
     border-radius: 0.5rem;
     padding: 0.35rem;
     font-weight: 600;
     border: transparent;
-    background: maroon;
+    background: #96031A;
     color: white;
 }
 .btnswrap{
     display: flex;
+    flex-flow: row wrap;
     width: 90%;
     justify-content: space-around;
     align-self: center;
@@ -210,10 +225,11 @@ h5{
     margin-top: .5rem;
 }
 .deletebtn{
-    width: 7rem;
+    width:100%;
     height: 7vh;
+    max-width: 9rem;
     align-self: flex-start;
-    font-size: .7em;
+    font-size: .9em;
     border-radius: .5rem;
     border: transparent;
     background-color: #96031A;
@@ -223,10 +239,11 @@ h5{
     font-weight: 500;
     }
     .customizebtn,.addtipbtn{
-        width: 7rem;
+        width:100%;
+        max-width: 9rem;
         height: 7vh;
         align-self: flex-start;
-        font-size: .7em;
+        font-size: .9em;
         border-radius: .5rem;
         border: transparent;
         background-color: #2C497F;
@@ -237,7 +254,7 @@ h5{
 
     }
 .submitbtn{
-    width: 13rem;
+    width: 100%;
     height: 7vh;
     margin: 0.5rem;
     align-self: flex-start;
@@ -245,7 +262,8 @@ h5{
     border-radius: .5rem;
     border: transparent;
     background-color: #499F68;
-    font-weight: 500;
+    font-weight: 600;
+    letter-spacing: .04em;
     color: white;
 }
 .cuztomizationlabel{
@@ -259,7 +277,7 @@ h5{
     text-align: left;
     padding: 0.5rem;
     text-indent: 0;
-    font-size: .7em;
+    font-size: .9em;
 }
 .hide{
     display: none;
@@ -273,8 +291,8 @@ h5{
     font-size: 1em;
     width: 95%;
     align-self: center;
-    margin: 1rem 0;
-    height: 25%;
+    margin: 0;
+    height: 40%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -284,6 +302,11 @@ h5{
     font-size: 1em;
     font-weight: 500;
     padding-left: .5rem;
+}
+@keyframes dash {
+    to {
+        background-position: 100% 0%, 0% 100%, 0% 0%, 100% 100%;
+    }
 }
 @media(min-width: 768px){
     .tipbtn:hover{
@@ -298,22 +321,51 @@ h5{
         opacity: .9;
         font-weight: bold;
         color: black;
+        font-size: 1.025em;
     }
-    .deletebtn:hover, .customizebtn:hover,.addtipbtn:hover{
+    .deletebtn:hover, .customizebtn:hover,.addtipbtn:hover, .clearbtn:hover{
         cursor: pointer;
-        font-weight: 500;
-        opacity: .7;
+        font-weight: 600;
+        opacity: .8;
+        font-size: .925;
     }
-    .submitbtn {
-        font-size: .9em;
-    }
-     .deletebtn,.customizebtn, .addtipbtn {
-        font-size: .8em;
+    .deletebtn:hover{
+        background-color: #F00528;
+        color: black;
+        opacity: .9;
+
     }
     .priceli:hover, .highlightselectedproduct:hover{
         cursor: pointer;
+        opacity: .9;
     }
     .orderpadwrap{
         margin-right: 2rem;
     }
+}
+@media(max-width:474px) {
+    .orderpadwrap{
+        height: 100%;
+    }
+    .checkmarksvg{
+        justify-content: center
+    }
+    .tipinput{
+        width: 4rem;
+    }
+    .subtotalWrap{
+        margin: 1rem 0;
+    }
+    
+}
+@media(min-width:420px) {
+    .tipwrap{
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+        position: relative;
+        left: 1%;
+        margin-right: 1rem;
+    }
+    
 }

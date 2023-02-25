@@ -39,10 +39,12 @@ html{
     justify-content: space-evenly;
     align-items: center;
     margin-left: 2rem;
+    position: absolute;
+    top: 85%;
 }
 @media(min-width:768px){
     .utilitybtns{
-        margin-left: .75rem;
+        /* margin-left: .75rem; */
         font-size: 1em;
     }
     .utilitybtns:hover{
