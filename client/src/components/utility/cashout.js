@@ -7,14 +7,12 @@ import { useNavigate } from "react-router-dom";
 
 
 export function CashOutScreen() {
-  const [lifetimeSales, setLifetimeSales] = useState(localStorage.getItem('lifetimeSales'));
+  const [lifetimeSales, setLifetimeSales] = useState(parseFloat(localStorage.getItem('lifetimeSales')));
   const [dailySales, setDailySales] = useState(localStorage.getItem('dailySales'));
   const [compedValue, setCompValue] = useState(localStorage.getItem('compedValue'));
   const [preCompedValue, setPreComped] = useState(localStorage.getItem('preCompedValue'));
   const [tips, setTips] = useState(localStorage.getItem('dailyTips'));
   const [compedPercent, setCompPercent] = useState((compedValue / preCompedValue) *100 );
-
-console.log((preCompedValue / 100) * compedValue)
   const employeeName = localStorage.getItem('name');
   const navigate = useNavigate();
 
@@ -23,6 +21,7 @@ console.log((preCompedValue / 100) * compedValue)
     const employeeID = localStorage.getItem('employeeID');
     const dailySales = localStorage.getItem('dailySales');
     const serverMetrics = [];
+    console.log(parseFloat(lifetimeSales).toFixed(2))
 
     // localStorage.setItem("dailySales", 0.00);
     // localStorage.setItem("compedValue", 0);
@@ -30,7 +29,8 @@ console.log((preCompedValue / 100) * compedValue)
     // localStorage.setItem("orderNum", 1);
   
     try {
-      serverMetrics.push(lifetimeSales, employeeID, dailySales)
+      console.log(parseFloat(lifetimeSales).toFixed(2))
+      serverMetrics.push(parseFloat(lifetimeSales), employeeID, dailySales)
     // Send data to the backend via POST
     const pull = await fetch("http://localhost:8000/updatemetrics", {
       method: "POST",
@@ -52,7 +52,7 @@ console.log((preCompedValue / 100) * compedValue)
         <h1 className="employeedata">Comped Value ${compedValue}</h1>
         <h1 className="employeedata">Tips ${tips}</h1>
         <span>{isNaN(compedPercent) ?  <h1 className="employeedata">Percentage of todays' sales comped: 0%</h1> : <h1 className="employeedata">Percentage of todays' sales comped: {compedPercent.toFixed(2)}%</h1>}</span>
-        <h1 className="employeedata">Lifetime Sales To Date ${lifetimeSales}</h1>
+        <h1 className="employeedata">Lifetime Sales To Date ${lifetimeSales.toFixed(2)}</h1>
         </section>
         <section className="cashoutbtnswrap">
         <button onClick={(e) => navigate(-1)} className="utilitybtns"><svg className="backarrowsvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>arrow-left-bold</title><path d="M20,9V15H12V19.84L4.16,12L12,4.16V9H20Z" /></svg></button>

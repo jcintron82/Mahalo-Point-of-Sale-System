@@ -35,7 +35,6 @@ function OrderPad() {
     PRODUCT.category === "Waffles"
       ? setWaffleIndex(true)
       : setWaffleIndex(null);
-    console.log(PRODUCT.category);
     setDeleteIndex(-1);
     const sum = parseInt(priceArr[0]) + parseInt(PRODUCT.Price.$numberDecimal);
     priceArr.length > 0
@@ -95,7 +94,6 @@ function OrderPad() {
         orderTotal: postTip,
         paymentType:'Cash'
       }
-      console.log(orders)
       updateDailySales();
       setFinalSum(0.0);
       priceArr[0] = 0.0;
@@ -131,7 +129,6 @@ function OrderPad() {
 
   const recordTip = (input) => {
     setTips(input.target.value);
-    console.log(tips);
   };
 
   //How we're transporting cuztomization data from other components without prop drilling.
@@ -170,8 +167,6 @@ function OrderPad() {
     const x = (parseFloat(finalSum).toFixed(2))
    const y = (parseFloat(tips).toFixed(2))
    const a = parseFloat(x) + parseFloat(y)
-   console.log(x)
-   console.log(y)
    setPostTip(parseFloat(priceArr[0] )+ parseFloat(tips));
   };
   const clearCustomization = () => {
@@ -257,7 +252,7 @@ function OrderPad() {
         </label>
         Tip: ${tips}
       </h5>
-      <h5 className="subtotalWrap">Order Total: ${postTip}</h5>
+      <h5 className="subtotalWrap">Order Total: ${postTip.toFixed(2)}</h5>
       <span className="btnswrap">
       <button
           className="deletebtn"

@@ -27,7 +27,6 @@ export function ManagerPanel() {
   };
   //Pulling all of our daily orders to aggregate the final sales data
   const orderObject = Object.entries(orders)
-  console.log(orderObject)
   orderObject.forEach((item) => {
     return item
   })

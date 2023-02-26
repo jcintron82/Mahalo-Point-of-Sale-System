@@ -22,7 +22,6 @@ const employeeMetrics = {
   const receiveSuccessfulLogin = async () => {
     const call = await fetch("http://localhost:8000/login");
         const data = await call.json();
-        console.log(data);
         if(!data.employeeName){
             setMessage('Incorrect Username/Password')
         }
@@ -35,7 +34,7 @@ const employeeMetrics = {
         const parsedPrice = JSON.stringify(data.lifetimeSales);
         const productPrice = JSON.parse(parsedPrice);
         let numberDecimal = productPrice["$numberDecimal"];
-        const finalFormattedNum = parseInt(numberDecimal)
+        const finalFormattedNum = parseFloat(numberDecimal)
         const orderNum = localStorage.getItem('orderNum')
         localStorage.setItem("lifetimeSales",finalFormattedNum.toFixed(2));
         localStorage.setItem("employeeID", data.employeeID);
