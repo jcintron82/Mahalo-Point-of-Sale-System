@@ -16,19 +16,22 @@ function OrderPad() {
   const [num, setnum] = useState(priceArr[2]);
   const [finalSum, setFinalSum] = useState(priceArr[0]);
   const [tips, setTips] = useState(priceArr[1]);
-  const [postTip, setPostTip] = useState(0);
+  const [postTip, setPostTip] = useState(parseFloat(finalSum) + parseFloat(tips));
   const [tipsinput, setTipsInput] = useState(false);
   const [deleteIndex, setIndex] = useState();
   const [stately, setStately] = useState(false);
   const [input, setInput] = useState("");
   const [customInput, setCustomInput] = useState(false);
   const [waffleIndex, setWaffleIndex] = useState(false);
+
+
   orderFunc.newOrder = () => {
+    const preCompedValue = localStorage.getItem('preCompedValue');
     const PRODUCT = orderPadArr[0].message[0];
     finalOrderArr.push(PRODUCT);
     orderPadArr.splice(0);
     totalFinalSum(PRODUCT.Price.$numberDecimal);
-    //Code I will eventually factor for the waffles and to prevent non applicapable addins to display
+    //Next 3 lines ensure non correlated addons show with waffles
     PRODUCT.category === "Waffles"
       ? setWaffleIndex(true)
       : setWaffleIndex(null);
@@ -38,6 +41,8 @@ function OrderPad() {
     priceArr.length > 0
       ? (priceArr[0] = sum)
       : priceArr.push(PRODUCT.Price.$numberDecimal);
+      const precomp = parseFloat(preCompedValue) + parseFloat(PRODUCT.Price.$numberDecimal)
+    localStorage.setItem('preCompedValue', precomp.toFixed(2))
   };
   //Runs on item click and uses the it's placement in the list to get its correlated
   //array placement which the delete index becomes. This is here so we can freely delete and
@@ -52,14 +57,18 @@ function OrderPad() {
 
   const deleteItem = () => {
     let sum = 0;
-    priceArr[0] = priceArr[0] - finalOrderArr[deleteIndex].Price.$numberDecimal;
+    const price = finalOrderArr[deleteIndex].Price.$numberDecimal
+    priceArr[0] = priceArr[0] - price;
     finalOrderArr.splice(deleteIndex, 1);
     const x = finalOrderArr.filter((price) => {
       sum = sum + parseInt(price.Price.$numberDecimal);
       return sum;
     });
+    const preComped = parseFloat(localStorage.getItem('preCompedValue'))
+    localStorage.setItem('preCompedValue', preComped - parseFloat(price))
     setFinalSum(sum);
     setDeleteIndex(deleteIndex - 1);
+    setPostTip(sum + tips);
   };
 
   const totalFinalSum = (itemPrice) => {
@@ -93,6 +102,9 @@ function OrderPad() {
       const selection = parseInt(priceArr[2]);
       priceArr[2] > 0 ? priceArr[2] = selection + 1 : priceArr[2] = 1
       localStorage.setItem("orderNum", priceArr[2]);
+      setnum(priceArr[2]);
+      const dailyTips = localStorage.getItem('dailyTips')
+      localStorage.setItem('dailyTips',  tips)
       clearAllValues();
     } else {
       console.log("Add Items Please");
@@ -100,7 +112,7 @@ function OrderPad() {
   };
   const updateDailySales = () => {
     let currentValue = localStorage.getItem("dailySales");
-    const formattedValue = parseInt(currentValue);
+    const formattedValue = parseFloat(currentValue);
     const final = formattedValue + finalSum;
     localStorage.setItem("dailySales", final.toFixed(2));
   };
@@ -109,12 +121,7 @@ function OrderPad() {
   //and the displaying of the input onto the selected product
   const specificCuztomizations = () => {
     setCustomInput(!customInput);
-    console.log(customInput);
-    if (customInput === true) {
-      console.log(customInput);
-    } else {
-      setInput("");
-    }
+    customInput ? console.log(customInput) : setInput("");
   };
 
   const recordChange = (input) => {
@@ -143,19 +150,30 @@ function OrderPad() {
       finalOrderArr[deleteIndex].Price.$numberDecimal = final.toFixed(2)
     priceArr[0] = finalSum - amtOff;
     setFinalSum(priceArr[0]);
+    setPostTip(parseFloat(priceArr[0]) + parseFloat(tips));
+    setStately(!stately)
+    const precomped =  localStorage.getItem('compedValue');
+    const compedValue = (parseFloat(precomped) + parseFloat(amtOff))
+    localStorage.setItem('compedValue', compedValue.toFixed(2))
   };
 
   const addTip = () => {
     setTipsInput(!tipsinput);
   };
 
-  const confirmTip = (tipValue) => {
+  const confirmTip = (e) => {
+    priceArr[1] = tips;
     const parsedTips = parseFloat(priceArr[1])
     setTips(parsedTips.toFixed(2));
     localStorage.setItem("dailyTips", priceArr[1]);
-    setPostTip(parseInt(finalSum) + parseFloat(tips));
+    const finalPostTip = (parseFloat(finalSum) + parseFloat(tips)).toFixed(2);
+    const x = (parseFloat(finalSum).toFixed(2))
+   const y = (parseFloat(tips).toFixed(2))
+   const a = parseFloat(x) + parseFloat(y)
+   console.log(x)
+   console.log(y)
+   setPostTip(parseFloat(priceArr[0] )+ parseFloat(tips));
   };
-
   const clearCustomization = () => {
     setInput("");
   };
@@ -163,7 +181,7 @@ function OrderPad() {
   //The functions below are for tracking the current order and assigning the order 'name' to it
   //for when it's logged. Functionality for this still in progress.
   useEffect(() => {
-    setnum(priceArr[2]);
+    priceArr[2] = localStorage.getItem('orderNum');
   });
   orderFunc.trackOrderNum = () => {
     setnum(priceArr[2]);
@@ -229,16 +247,17 @@ function OrderPad() {
           </span>
           <input
             className={tipsinput ? "tipinput" : "hide"}
-            type="text"
+            type="number"
             onChange={recordTip}
+            placeholder='7.10'
           ></input>
           <button className="tipbtn" onClick={confirmTip}>
-          <svg  className="checkmarksvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>confirm-tip</title><path  className="checkmarksvg" stroke="000000" stroke-width='4' d="M12 2C6.5 2 2 6.5 2 12S6.5 22 12 22 22 17.5 22 12 17.5 2 12 2M12 20C7.59 20 4 16.41 4 12S7.59 4 12 4 20 7.59 20 12 16.41 20 12 20M16.59 7.58L10 14.17L7.41 11.59L6 13L10 17L18 9L16.59 7.58Z" /></svg>
+          <svg  className="checkmarksvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>confirm-tip</title><path  className="checkmarksvg" stroke="000000" d="M12 2C6.5 2 2 6.5 2 12S6.5 22 12 22 22 17.5 22 12 17.5 2 12 2M12 20C7.59 20 4 16.41 4 12S7.59 4 12 4 20 7.59 20 12 16.41 20 12 20M16.59 7.58L10 14.17L7.41 11.59L6 13L10 17L18 9L16.59 7.58Z" /></svg>
           </button>
         </label>
         Tip: ${tips}
       </h5>
-      <h5 className="subtotalWrap">Order Total: ${postTip.toFixed(2)}</h5>
+      <h5 className="subtotalWrap">Order Total: ${postTip}</h5>
       <span className="btnswrap">
       <button
           className="deletebtn"

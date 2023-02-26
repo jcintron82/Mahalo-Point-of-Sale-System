@@ -13,6 +13,7 @@
     margin-top: 1rem;
     border-radius: .5rem;
     border: none;
+    padding-bottom: 1rem;
 }
 .orderpad-items-wrap{
     display: flex;
@@ -303,17 +304,21 @@ h5{
     font-weight: 500;
     padding-left: .5rem;
 }
+
 @keyframes dash {
     to {
         background-position: 100% 0%, 0% 100%, 0% 0%, 100% 100%;
     }
 }
-@media(min-width: 768px){
+@media(min-width: 1024px){
+    .clearbtn:active{
+        opacity: .8;
+    }
     .tipbtn:hover{
         cursor: pointer;;
     }
     .checkmarksvg:hover{
-        stroke: lightgreen;
+        stroke: #65B884;
     }
      .submitbtn:hover {
         background-color: lightgreen;
@@ -355,6 +360,9 @@ h5{
     }
     .subtotalWrap{
         margin: 1rem 0;
+    }
+    .tipwrap{
+        justify-content: center;
     }
     
 }

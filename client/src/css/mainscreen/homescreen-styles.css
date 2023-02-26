@@ -16,8 +16,12 @@
 }
 .welcomemsg{
     margin-bottom: 2rem;
-    width: 100%;
+    font-size: 1em;
+    font-weight: 600;
+    position: absolute;
+    top: 2%;
     text-align: center;
+    left: 50%;
 }
 
 .categorybtnswrap{
@@ -122,5 +126,9 @@ h6{
     .mainwrap {
         flex-direction: row;
        
+    }
+    .welcomemsg{
+        font-size: 1.75em;
+        font-weight: 600;
     }
 }

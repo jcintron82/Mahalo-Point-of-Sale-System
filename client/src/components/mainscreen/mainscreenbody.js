@@ -32,7 +32,7 @@ export function HomeScreenBody() {
   return (
   <div className='body'>
     <div className="mainwrap">
-      <OrderPad />
+      <OrderPad />  
       <div className="categorybtnswrap">
             <h1 className='welcomemsg'>Welcome Back {name}</h1>
         <button onClick={(e) => onClick("breakfast")} className="categorybtns"><span className='btnimgwrap'><img className='btnimg' src={require('../../images/breakfast/breakfastmain.jpg')}></img></span>

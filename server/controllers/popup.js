@@ -3,7 +3,6 @@ let username = "";
 let status = false;
 module.exports = {
   postLogin: (req, res) => {
-console.log(req.body.username)
     username = req.body.username;
     status = true;
   },

@@ -5,6 +5,7 @@ import { UtilityBar } from '../utility/utilitybar';
 import "../../css/mainscreen/homescreen-styles.css";
 export { customizationOptions, EggBreakfasts };
 
+//Find any relevent functions saved in this object in the orderpad component, right above the JSX portion
 const customizationOptions = {
     
 }

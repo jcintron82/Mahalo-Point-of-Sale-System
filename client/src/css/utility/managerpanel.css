@@ -19,20 +19,37 @@
     flex-direction: column;
     align-items: center;
     height: 10rem;
+    padding: 1rem 0;
 }
 .compinput{
-    width: 50%;
-    height: 5vh;
+    width: 30%;
+    height: 3rem;
     margin: 0.25rem 0;
     text-align: center;
-    padding: 0.25rem;
+    border: solid 2px;
+    padding: 0;
+    border-right: none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
 }
-.percentsvgwrap{
+.labelwrap{
     display: flex;
     justify-content: center;
 }
+.percentwrap{
+    width: 2rem;
+    height: 3rem;
+    display: flex;
+    align-self: center;
+    align-items: center;
+    border: solid 2px;
+    border-left: none;
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+}
 .percentsvg{
-    fill:red
+    fill: black;
+    stroke: white;
 }
 @media(min-width:768px) {
     .manageractionsmainwrap{

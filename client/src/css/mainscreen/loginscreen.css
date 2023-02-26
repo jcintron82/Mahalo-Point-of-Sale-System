@@ -20,9 +20,9 @@ label{
     width: 11.5rem;
 }
 .loginbtn{
-    width: 15%;
+    width: 90%;
     align-self: center;
-    height: 5vh;
+    height: 6vh;
     border-radius: 0.4rem;
     border-color: transparent;
     background-color: #0C0A3E;
@@ -30,6 +30,7 @@ label{
     font-size: 1em;
     font-weight: 600;
     margin-top: 1rem;
+    max-width: 15rem;
 }
 @media (min-width:1024px){
     .loginbtn:hover{

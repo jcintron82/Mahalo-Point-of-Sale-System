@@ -17,6 +17,8 @@
     border-bottom: solid 2px;
     margin: .25rem;
     padding-left: .5rem;
+    width: 100%;
+    font-weight: 500;
 }
 .cashoutbtnswrap{
     display: flex;
@@ -27,7 +29,9 @@
     width: 80%;
     max-width: 20rem;
     align-self: center;
-    padding: 1rem;
+    font-size: .92em;
+    height: 10vh;
+    margin-right: 1rem;
     border-radius: 0.5rem;
     border: transparent;
     color: white;

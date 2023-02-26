@@ -9,6 +9,12 @@ import { useNavigate } from "react-router-dom";
 export function CashOutScreen() {
   const [lifetimeSales, setLifetimeSales] = useState(localStorage.getItem('lifetimeSales'));
   const [dailySales, setDailySales] = useState(localStorage.getItem('dailySales'));
+  const [compedValue, setCompValue] = useState(localStorage.getItem('compedValue'));
+  const [preCompedValue, setPreComped] = useState(localStorage.getItem('preCompedValue'));
+  const [tips, setTips] = useState(localStorage.getItem('dailyTips'));
+  const [compedPercent, setCompPercent] = useState((compedValue / preCompedValue) *100 );
+
+console.log((preCompedValue / 100) * compedValue)
   const employeeName = localStorage.getItem('name');
   const navigate = useNavigate();
 
@@ -17,6 +23,11 @@ export function CashOutScreen() {
     const employeeID = localStorage.getItem('employeeID');
     const dailySales = localStorage.getItem('dailySales');
     const serverMetrics = [];
+
+    // localStorage.setItem("dailySales", 0.00);
+    // localStorage.setItem("compedValue", 0);
+    // localStorage.setItem("preCompedValue", 0);
+    // localStorage.setItem("orderNum", 1);
   
     try {
       serverMetrics.push(lifetimeSales, employeeID, dailySales)
@@ -36,9 +47,11 @@ export function CashOutScreen() {
     <div className="cashoutscreenbody">
       <section className="employeedatasectionwrap">
         <h1 className="employeedata">Employee: {employeeName}</h1>
-        <h1 className="employeedata">Today's Sales ${dailySales}</h1>
-        <h1 className="employeedata">Today's Comped Value ${dailySales}</h1>
-        <h1 className="employeedata">Percentage of todays' sales comped: {dailySales}</h1>
+        <h1 className="employeedata">Pre-Comped Sales ${preCompedValue}</h1>
+        <h1 className="employeedata">Actual Sales ${dailySales}</h1>
+        <h1 className="employeedata">Comped Value ${compedValue}</h1>
+        <h1 className="employeedata">Tips ${tips}</h1>
+        <span>{isNaN(compedPercent) ?  <h1 className="employeedata">Percentage of todays' sales comped: 0%</h1> : <h1 className="employeedata">Percentage of todays' sales comped: {compedPercent.toFixed(2)}%</h1>}</span>
         <h1 className="employeedata">Lifetime Sales To Date ${lifetimeSales}</h1>
         </section>
         <section className="cashoutbtnswrap">
