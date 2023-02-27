@@ -1,8 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import { customizationOptions } from './eggbreakfasts.js';
 import { OrderPad } from '../utility/orderpad.js'
-import { UtilityBar } from '../utility/utilitybar'
-import { CustomizationBtn } from '../utility/customizationbtn';
 
 import "../../css/mainscreen/homescreen-styles.css";
 

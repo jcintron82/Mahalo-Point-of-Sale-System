@@ -1,7 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { editItems } from '../utility/orderpad.js';
 import { OrderPad, orderPadArr, orderFunc } from '../utility/orderpad.js';
-import { UtilityBar } from '../utility/utilitybar';
 import "../../css/mainscreen/homescreen-styles.css";
 export { customizationOptions, EggBreakfasts };
 
@@ -18,7 +16,7 @@ function EggBreakfasts() {
     queryArr.push(input);
     try {
       // Send data to the backend via POST
-      const pull = await fetch("http://localhost:8000/customizedplates", {
+      const pull = await fetch('http://localhost:8000/customizedplates', {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(queryArr),
