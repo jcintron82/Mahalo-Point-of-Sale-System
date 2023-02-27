@@ -111,6 +111,9 @@ app.use("/", mainRoutes);
 
 
 //Server Running
-app.listen(8000, () => {
-  console.log("Server is running on port 8000");
-});
+if (process.env.PORT) {
+  pp.listen(process.env.PORT, () => {
+    // console.log("Server is running on port" + process.env.PORT);
+  });
+}
+
