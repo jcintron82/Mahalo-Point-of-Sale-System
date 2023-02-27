@@ -6,6 +6,8 @@ A password-protected management tools panel gives an authenticated user the abil
 
 Pre-comped sales (i.e., pre-manager discount), comped amounts, true daily sales, tips, and percentage of comped sales are all tracked and stored. Additionally, an itemized version of each order is saved, which includes the items, customizations, total(s), and tip.
 
+![5fd3a892ac67c8bf61d369d438b7e712062baf2c](https://user-images.githubusercontent.com/71289948/221447856-d3fa76f1-fa53-4550-bf5d-beef7f5d6d8f.gif)
+
 
 **How It's Made:**
 
