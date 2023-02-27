@@ -16,7 +16,7 @@ function EggBreakfasts() {
     queryArr.push(input);
     try {
       // Send data to the backend via POST
-      const pull = await fetch('http://localhost:8000/customizedplates', {
+      const pull = await fetch(process.env.REACT_APP_API_URL + '/customizedplates', {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(queryArr),
