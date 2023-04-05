@@ -1,34 +1,45 @@
-**Point-of-Sale**
-
-This is your standard point of sale system found in any retail store or restaurant. Authenticated users, upon signing in, can create customer orders by adding, editing, and deleting products in relation to the order. Users can also customize items, input tip amounts, and maintain a running registry of previously submitted orders.
-
-A password-protected management tools panel gives an authenticated user the ability to apply discounts and change past submitted order data. (Note that the data manipulation portion is still in development at the time of this writing.)
-
-Pre-comped sales (i.e., pre-manager discount), comped amounts, true daily sales, tips, and percentage of comped sales are all tracked and stored. Additionally, an itemized version of each order is saved, which includes the items, customizations, total(s), and tip.
-
-![5fd3a892ac67c8bf61d369d438b7e712062baf2c](https://user-images.githubusercontent.com/71289948/221447856-d3fa76f1-fa53-4550-bf5d-beef7f5d6d8f.gif)
+<h1 align="center"><img align="center" width="250" height="250" src='https://user-images.githubusercontent.com/71289948/230168880-6da4013f-e1bd-4fa8-9ebe-1ae105a74379.png'></img>
+<div>Mahalo Point-of-Sale System</div></h1> <br>
+<p align="center">
+  <a href="https://point-of-sale-client-topaz.vercel.app/login">
+  Demo Mahalo
+  </a>
+</p>
 
 
-**How It's Made:**
 
-Frontend - React.js, CSS
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+## Table of Contents
 
-Backend - Node.js, Express
+- [Introduction](#introduction)
+- [Features](#features)
+- [Feedback](#feedback)
+- [Build Process](#feedback)
+- [Optimizations](#optimizations)
 
-Database - MongoDB
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-The skeleton functionality of the application is pretty standard, involving some POST and GET requests to authenticate users and fetch products from the database, etc. However, challenges arose when it came time to implement the order pad component and its products.
+## Introduction
+Mahalo is a one-stop shop for your business point-of-sale needs! Featuring features such as employee sales, tips and comp data tracking; you can feel secure knowing that every dollar and discount given is accounted for. 
 
-I needed a way to separate the concerns of each individual product item for customization purposes. To accomplish this, each time an item is selected/pulled from the database, it is pushed into an array, a "final order array" if you will.
 
-In this array, since items are always pushed in at the end, I was able to reliably ascertain each one's index in the results of a .map() method called on the final order array. On a click, this index is passed to a function that records it to a useState value. This way, each time a product is selected, its index can be recorded in the state and used accordingly to edit the correct item.
+## Features
+• Product listing and ordering
 
-There were other challenges that I faced, but this was definitely one worth mentioning.
+• Employee sales tracking
 
-**Lessons Learned:**
+• Employee tips and comped value tracking
 
-This section is still somewhat in progress, but as of now, looking back, I wish I had taken a bit more time to conceptually think about the flow of data and how I want it to be structured.
+• Password protected application and management panel access
 
-At one point, I found myself having to refactor my order pad component due to the flow of data causing a bottleneck, which was restricting the separation of concerns I spoke of in my "How it's made" section.
+• Orders with all associated meta data are stored for your future records
 
-However, this refactor turned out to be beneficial in the end. The code was improved, and I learned a valuable lesson for future use.
+## Feedback
+Have feedback for us here at Mahalo? Our goal is to always improve and that starts with your feedback. Give the creator a follow on <a href="https://twitter.com/jcintron_">
+  Twitter
+  </a> and make your feedback known or shoot us an <a href = "mailto: jgdevelopment6@gmail.com">Email.</a>  
+
+## Optimizations 
+• When logging in for the first time on a new device, the initial login can be a bit slow.
+I have a planned optimization for this involving the order of the Promise chain in the making but nothing implemented as of yet.
