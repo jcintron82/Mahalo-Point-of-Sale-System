@@ -25,15 +25,15 @@ Mahalo is a one-stop shop for your business point-of-sale needs! Featuring featu
 
 
 ## Features
-• Product listing and ordering
+- Product listing and ordering
 
-• Employee sales tracking
+- Employee sales tracking
 
-• Employee tips and comped value tracking
+- Employee tips and comped value tracking
 
-• Password protected application and management panel access
+- Password protected application and management panel access
 
-• Orders with all associated meta data are stored for your future records
+- Orders with all associated meta data are stored for your future records
 
 ## Feedback
 Have feedback for us here at Mahalo? Our goal is to always improve and that starts with your feedback. Give the creator a follow on <a href="https://twitter.com/jcintron_">
@@ -41,5 +41,5 @@ Have feedback for us here at Mahalo? Our goal is to always improve and that star
   </a> and make your feedback known or shoot us an <a href = "mailto: jgdevelopment6@gmail.com">Email.</a>  
 
 ## Optimizations 
-• When logging in for the first time on a new device, the initial login can be a bit slow.
+- When logging in for the first time on a new device, the initial login can be a bit slow.
 I have a planned optimization for this involving the order of the Promise chain in the making but nothing implemented as of yet.
