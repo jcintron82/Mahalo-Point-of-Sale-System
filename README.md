@@ -1,4 +1,4 @@
-<h1 align="center"><img align="center" width="250" height="250" src='https://user-images.githubusercontent.com/71289948/230168880-6da4013f-e1bd-4fa8-9ebe-1ae105a74379.png'></img>
+<h1 align="center"><img align="center" width="250" height="250" src='https://user-images.githubusercontent.com/71289948/230172397-03e0167b-2d5a-4e76-bcc3-0ed52af2ef53.png'></img>
 <div>Mahalo Point-of-Sale System</div></h1> <br>
 <p align="center">
   <a href="https://point-of-sale-client-topaz.vercel.app/login">
